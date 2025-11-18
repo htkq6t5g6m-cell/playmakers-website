@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PLAYMAKERS - Elite football coaching in Cheshire delivered by current professional footballers. Ages 5-18.">
+    <title>PLAYMAKERS - Cheshire Football Coaching</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- STICKY HEADER -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="#home" style="display: block; height: 45px; overflow: hidden;">
+                        <img src="images/logo/logo.jpg" alt="PLAYMAKERS Logo" style="height: 80px; width: auto; object-fit: cover; object-position: center;">
+                    </a>
+                </div>
+                <nav class="nav" id="nav">
+                    <ul class="nav-list">
+                        <li><a href="#home" class="nav-link">Home</a></li>
+                        <li><a href="#coaches" class="nav-link">Coaches</a></li>
+                        <li><a href="#sessions" class="nav-link">Sessions</a></li>
+                        <li><a href="#reviews" class="nav-link">Reviews</a></li>
+                        <li><a href="#contact" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+                <a href="#contact" class="btn btn-primary btn-header">Book Now</a>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <!-- Background Video -->
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="videos/hero-background.mp4" type="video/mp4">
+            <!-- Fallback to image if video doesn't load -->
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">PLAYMAKERS</h1>
+            <p class="hero-subtitle">CHESHIRE FOOTBALL COACHING</p>
+            <p class="hero-text">Elite coaching delivered by current professional footballers.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary btn-large">Book a Session</a>
+                <a href="https://wa.me/447482768570" class="btn btn-secondary btn-large" target="_blank">WhatsApp Us</a>
+            </div>
+            <div class="scroll-indicator">
+                <p>Scroll to learn more</p>
+                <span class="scroll-arrow">↓</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLUB EXPERIENCE BAR -->
+    <section class="club-bar">
+        <div class="container">
+            <div class="club-logos">
+                <div class="club-logo">Everton</div>
+                <div class="club-logo">Man City</div>
+                <div class="club-logo">Man Utd</div>
+                <div class="club-logo">Liverpool</div>
+                <div class="club-logo">Chester FC</div>
+                <div class="club-logo">Wrexham</div>
+                <div class="club-logo">Accrington Stanley</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2 class="section-heading">About Playmakers</h2>
+                    <p>Playmakers delivers elite football coaching led exclusively by current and former professional players. Our mission is to help young players develop technique, confidence and understanding through modern methods used in pro academies.</p>
+                    <p>Based in Cheshire, we support players aged 5–18 across all abilities, with personalised, high-energy sessions shaped by real football experience.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=800&h=600&fit=crop" alt="Young footballers training on a pitch with professional coaches">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MEET THE COACHES -->
+    <section class="coaches" id="coaches">
+        <div class="container">
+            <h2 class="section-heading text-center">Meet Our Coaches</h2>
+            <p class="section-subtitle text-center">Current professional footballers with elite academy experience.</p>
+            <div class="coaches-grid">
+                <!-- Coach Card: Jack -->
+                <div class="coach-card">
+                    <div class="coach-image">
+                        <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=400&h=400&fit=crop" alt="Jack - Advanced Talent Coach">
+                    </div>
+                    <div class="coach-info">
+                        <h3 class="coach-name">Jack</h3>
+                        <p class="coach-role">Advanced Talent Coach | Ex-Everton FC</p>
+                        <p class="coach-bio">A highly knowledgeable and experienced coach with a strong academy playing background at Accrington Stanley, Stoke City, and Manchester City. As an ex–Everton FC Advanced Talent Coach, he has developed a reputation for his ability to analyse and adjust technique, identify a player's specific needs, and design sessions that deliver clear, measurable improvement. Dedicated, supportive, and technically driven, he brings professional insight and a passion for helping players unlock their full potential.</p>
+                    </div>
+                </div>
+                
+                <!-- Coach Card: Henry -->
+                <div class="coach-card">
+                    <div class="coach-image">
+                        <img src="https://images.unsplash.com/photo-1564859228273-274232fdb516?w=400&h=400&fit=crop" alt="Henry - Defender">
+                    </div>
+                    <div class="coach-info">
+                        <h3 class="coach-name">Henry</h3>
+                        <p class="coach-role">Defender | Chester FC Professional</p>
+                        <p class="coach-bio">A technically strong and highly disciplined defender, now a professional at Chester FC, brings over a decade of elite academy experience to 1-to-1 coaching. Having spent 10 years developing at Everton's Academy, he has been immersed in top-level training environments. Known for his game intelligence, calmness in possession, and defensive leadership, he translates his professional experience into tailored, engaging, and development-focused coaching sessions.</p>
+                    </div>
+                </div>
+                
+                <!-- Coach Card: Ellie -->
+                <div class="coach-card">
+                    <div class="coach-image">
+                        <img src="https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=400&h=400&fit=crop" alt="Ellie - Women's Professional">
+                    </div>
+                    <div class="coach-info">
+                        <h3 class="coach-name">Ellie</h3>
+                        <p class="coach-role">Women's Professional | Everton FC</p>
+                        <p class="coach-bio">A talented and driven women's professional footballer at Everton, known for her technical quality, athleticism, and consistency at the highest level. Having developed through the prestigious Liverpool Academy, she brings a calm, supportive, and highly engaging approach to coaching. Her sessions focus on improving technique, confidence, and decision-making, while showing players what it takes to reach the elite level.</p>
+                    </div>
+                </div>
+                
+                <!-- Coach Card: Harry -->
+                <div class="coach-card">
+                    <div class="coach-image">
+                        <img src="https://images.unsplash.com/photo-1606925797300-0b35e9d1794e?w=400&h=400&fit=crop" alt="Harry - Right Back">
+                    </div>
+                    <div class="coach-info">
+                        <h3 class="coach-name">Harry</h3>
+                        <p class="coach-role">Right Back | Chester FC Scholar</p>
+                        <p class="coach-bio">A dynamic and attack-minded right back, currently a scholar at Chester FC, with first-team appearances already to his name. He brings a decade of top-level youth experience from 10 years in Everton's Academy. Known for his high energy up and down the flank, reliable 1v1 defending, and composure in possession, he delivers high-quality 1-to-1 coaching shaped by both academy and senior football experience.</p>
+                    </div>
+                </div>
+                
+                <!-- Coach Card: Isaac -->
+                <div class="coach-card">
+                    <div class="coach-image">
+                        <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=400&h=400&fit=crop" alt="Isaac - Striker">
+                    </div>
+                    <div class="coach-info">
+                        <h3 class="coach-name">Isaac</h3>
+                        <p class="coach-role">Striker | Chester FC Scholar</p>
+                        <p class="coach-bio">An explosive and clinical striker currently a scholar at Chester FC, known for his pace, sharp finishing, and natural attacking instinct. Having spent most of his childhood developing at Warrington Rylands FC, he is loved by younger players for his positivity, energy, and joyful personality. His sessions combine dynamic attacking drills with confidence-building challenges, helping players improve their speed, movement, and finishing.</p>
+                    </div>
+                </div>
+                
+                <!-- Coach Card: Jake -->
+                <div class="coach-card">
+                    <div class="coach-image">
+                        <img src="https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=400&h=400&fit=crop" alt="Jake - Central Midfielder">
+                    </div>
+                    <div class="coach-info">
+                        <h3 class="coach-name">Jake</h3>
+                        <p class="coach-role">Central Midfielder | Chester FC Scholar</p>
+                        <p class="coach-bio">A composed and hard-working central midfielder currently a scholar at Chester FC, recognised for his leadership, intelligence on the ball, and ability to control the tempo of the game. Growing up and developing at Warrington Rylands FC, he is a natural captain who brings calmness, clarity, and encouragement to every session. His 1-to-1 coaching focuses on ball mastery, decision-making, awareness, and the fundamentals of intelligent midfield play.</p>
+                    </div>
+                </div>
+                
+                <!-- Coach Card: Kian -->
+                <div class="coach-card">
+                    <div class="coach-image">
+                        <img src="https://images.unsplash.com/photo-1592656094267-764a45160876?w=400&h=400&fit=crop" alt="Kian - Right Back">
+                    </div>
+                    <div class="coach-info">
+                        <h3 class="coach-name">Kian</h3>
+                        <p class="coach-role">Right Back | Chester FC Scholar</p>
+                        <p class="coach-bio">A dependable and intelligent right back, currently a scholar at Chester FC, known for his defensive sharpness and confidence in possession. His journey through two elite youth environments — Manchester United and Wrexham — has shaped his technical quality, discipline, and understanding of high-level football. He specialises in developing defensive fundamentals, 1v1 ability, awareness, and effective attacking play from wide areas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="why-choose" id="reviews">
+        <div class="container">
+            <h2 class="section-heading text-center">Why Choose Us</h2>
+            <p class="section-subtitle text-center">Professional coaching grounded in real playing experience.</p>
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <div class="feature-box">
+                    <div class="feature-icon">⚽</div>
+                    <h3 class="feature-title">Current Footballers</h3>
+                    <p class="feature-text">All sessions led by active or former professional players.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="feature-box">
+                    <div class="feature-icon">🏆</div>
+                    <h3 class="feature-title">Elite Academy Experience</h3>
+                    <p class="feature-text">Methods inspired by top UK academies.</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="feature-box">
+                    <div class="feature-icon">👤</div>
+                    <h3 class="feature-title">Personalised Coaching</h3>
+                    <p class="feature-text">Individual feedback tailored to every player.</p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="feature-box">
+                    <div class="feature-icon">✨</div>
+                    <h3 class="feature-title">Professional Standards</h3>
+                    <p class="feature-text">High-energy sessions with clear technical outcomes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR SERVICES -->
+    <section class="services" id="sessions">
+        <div class="container">
+            <h2 class="section-heading text-center">Our Services</h2>
+            <p class="section-subtitle text-center">Comprehensive coaching solutions for players at all levels.</p>
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <h3 class="service-title">1-to-1 Coaching</h3>
+                    <p class="service-text">Personalised technical and tactical development sessions tailored to individual strengths and areas for improvement.</p>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <h3 class="service-title">Coached Matches</h3>
+                    <p class="service-text">Are you looking for higher level matches for your son or daughter or just want extra game time?</p>
+                    <div class="service-schedule">
+                        <h4 class="schedule-heading">Match Schedule</h4>
+                        <div class="schedule-item">
+                            <span class="schedule-day">Tuesdays 6-7pm</span>
+                            <span class="schedule-details">Age 6-8</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="schedule-day">Wednesdays 6-7pm</span>
+                            <span class="schedule-details">Age 10-12</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="schedule-day">Thursdays 6-7pm</span>
+                            <span class="schedule-details">Age 10-12</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <h3 class="service-title">Group Sessions</h3>
+                    <p class="service-text">An energetic group session focusing on ball mastery, ball manipulation and improving 1v1 battles.</p>
+                    <div class="service-schedule">
+                        <h4 class="schedule-heading">Schedule</h4>
+                        <div class="schedule-item">
+                            <span class="schedule-day">Tuesdays 5-6pm</span>
+                            <span class="schedule-details">High level • Age 8-9</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="schedule-day">Wednesdays 6:30-7:30pm</span>
+                            <span class="schedule-details">Mid-high level • Ages 9-13</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="schedule-day">Fridays 6-7pm</span>
+                            <span class="schedule-details">Mid-high level • Ages 6-9</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="schedule-day">Fridays 7-8pm</span>
+                            <span class="schedule-details">High level • Ages 9-13</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <h3 class="service-title">Team Training</h3>
+                    <p class="service-text">Are you a grassroots club or academy looking to level up your training for your kids?</p>
+                    <div class="service-schedule">
+                        <h4 class="schedule-heading">Our Services</h4>
+                        <div class="schedule-item">
+                            <span class="schedule-details">• An experienced Playmakers coach dedicated to your team</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="schedule-details">• One-off sessions to mix up the training schedule</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="schedule-details">• Block booked training sessions to take the pressure off of the manager and provide kids with great training</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card">
+                    <h3 class="service-title">Scouting Reports</h3>
+                    <p class="service-text">Detailed player reviews and development plans to track progress and identify key areas for growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIDEO GALLERY SECTION -->
+    <section class="video-gallery">
+        <div class="container">
+            <h2 class="section-heading text-center">Training in Action</h2>
+            <p class="section-subtitle text-center">Watch our coaches in action and see the quality of training we deliver</p>
+            
+            <div class="videos-grid">
+                <!-- Video 1 - YouTube Embed -->
+                <div class="video-item">
+                    <div class="video-wrapper">
+                        <iframe 
+                            src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                            title="Training Session Highlights"
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <h3 class="video-title">1-to-1 Training Session</h3>
+                    <p class="video-description">Elite coaching focusing on ball mastery and technical development</p>
+                </div>
+                
+                <!-- Video 2 - YouTube Embed -->
+                <div class="video-item">
+                    <div class="video-wrapper">
+                        <iframe 
+                            src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                            title="Group Session Highlights"
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <h3 class="video-title">Group Session Highlights</h3>
+                    <p class="video-description">High-energy group training with professional coaches</p>
+                </div>
+                
+                <!-- Video 3 - YouTube Embed -->
+                <div class="video-item">
+                    <div class="video-wrapper">
+                        <iframe 
+                            src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                            title="Coached Match Highlights"
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <h3 class="video-title">Coached Match Action</h3>
+                    <p class="video-description">Real match scenarios with live feedback and analysis</p>
+                </div>
+                
+                <!-- Video 4 - Self-hosted fallback -->
+                <div class="video-item">
+                    <div class="video-wrapper">
+                        <video controls poster="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=800&h=450&fit=crop">
+                            <source src="videos/team-training.mp4" type="video/mp4">
+                            Your browser doesn't support video playback.
+                        </video>
+                    </div>
+                    <h3 class="video-title">Team Training Session</h3>
+                    <p class="video-description">Professional coaching for grassroots teams</p>
+                </div>
+                
+                <!-- Video 5 - Self-hosted fallback -->
+                <div class="video-item">
+                    <div class="video-wrapper">
+                        <video controls poster="https://images.unsplash.com/photo-1606925797300-0b35e9d1794e?w=800&h=450&fit=crop">
+                            <source src="videos/skills-training.mp4" type="video/mp4">
+                            Your browser doesn't support video playback.
+                        </video>
+                    </div>
+                    <h3 class="video-title">Skills Development</h3>
+                    <p class="video-description">Advanced technical drills and ball manipulation</p>
+                </div>
+                
+                <!-- Video 6 - Self-hosted fallback -->
+                <div class="video-item">
+                    <div class="video-wrapper">
+                        <video controls poster="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&h=450&fit=crop">
+                            <source src="videos/finishing-drills.mp4" type="video/mp4">
+                            Your browser doesn't support video playback.
+                        </video>
+                    </div>
+                    <h3 class="video-title">Finishing & Shooting</h3>
+                    <p class="video-description">Clinical finishing techniques from professional strikers</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INSTAGRAM FEED SECTION -->
+    <section class="instagram-feed">
+        <div class="container">
+            <h2 class="section-heading text-center">Follow Our Journey</h2>
+            <p class="section-subtitle text-center">See our latest training sessions, player development, and coaching highlights on Instagram</p>
+            
+            <!-- Instagram Feed Widget - Last 3 Posts -->
+            <div class="instagram-embed">
+                <div class="instagram-widget" id="instagram-widget">
+                    <!-- This will be populated by the Instagram feed -->
+                    <div class="instagram-grid-3">
+                        <a href="https://instagram.com/playmakers_football" target="_blank" class="instagram-post-large">
+                            <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=600&h=600&fit=crop" alt="Latest training session from @playmakers_football">
+                            <div class="instagram-overlay">
+                                <div class="instagram-info">
+                                    <span class="instagram-icon">📷</span>
+                                    <p class="instagram-caption">Latest post from @playmakers_football</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="https://instagram.com/playmakers_football" target="_blank" class="instagram-post-large">
+                            <img src="https://images.unsplash.com/photo-1606925797300-0b35e9d1794e?w=600&h=600&fit=crop" alt="Recent coaching session from @playmakers_football">
+                            <div class="instagram-overlay">
+                                <div class="instagram-info">
+                                    <span class="instagram-icon">📷</span>
+                                    <p class="instagram-caption">Recent post from @playmakers_football</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="https://instagram.com/playmakers_football" target="_blank" class="instagram-post-large">
+                            <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=600&h=600&fit=crop" alt="Player development from @playmakers_football">
+                            <div class="instagram-overlay">
+                                <div class="instagram-info">
+                                    <span class="instagram-icon">📷</span>
+                                    <p class="instagram-caption">Earlier post from @playmakers_football</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="instagram-cta">
+                <a href="https://instagram.com/playmakers_football" target="_blank" class="btn btn-primary btn-large">
+                    <span style="margin-right: 8px;">📱</span> Follow @playmakers_football
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT CTA SECTION -->
+    <section class="contact-cta" id="contact">
+        <div class="container">
+            <h2 class="section-heading text-center">Ready to Start Your Journey?</h2>
+            <p class="cta-text text-center">Get in touch to book your first session or learn more about our services.</p>
+            <div class="cta-buttons">
+                <a href="tel:07482768570" class="btn btn-cta">
+                    <span class="btn-icon">📞</span>
+                    Call: 07482 768570
+                </a>
+                <a href="https://wa.me/447482768570" class="btn btn-cta" target="_blank">
+                    <span class="btn-icon">💬</span>
+                    WhatsApp
+                </a>
+                <a href="https://instagram.com/playmakers_football" class="btn btn-cta" target="_blank">
+                    <span class="btn-icon">📱</span>
+                    Instagram @playmakers_football
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">© 2025 PLAYMAKERS - Cheshire Football Coaching. All rights reserved.</p>
+            <p class="footer-contact">📞 07482 768570 | 📱 Instagram: @playmakers_football</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
