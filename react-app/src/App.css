@@ -629,22 +629,22 @@ ul {
 
 .services {
     padding: var(--section-padding);
-    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url("/images/page-images/services.jpg") center/cover no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url("/images/page-images/background.png") center/cover no-repeat;
     background-attachment: fixed;
 }
 .services {
     padding: var(--section-padding);
-    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url("/images/page-images/services.jpg") center/cover no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url("/images/page-images/background.png") center/cover no-repeat;
     background-attachment: fixed;
 }
 .services {
     padding: var(--section-padding);
-    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url("/images/page-images/services.jpg") center/cover no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url("/images/page-images/background.png") center/cover no-repeat;
     background-attachment: fixed;
 }
 .services {
     padding: var(--section-padding);
-    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url("/images/page-images/services.jpg") center/cover no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url("/images/page-images/background.png") center/cover no-repeat;
     background-attachment: fixed;
 }
 
@@ -891,6 +891,41 @@ ul {
     gap: 24px;
 }
 
+/* When there's only one instagram post, center it and limit max width */
+.instagram-grid-3 > *:only-child {
+    grid-column: 1 / -1;
+    justify-self: center;
+    max-width: 720px;
+    width: 100%;
+}
+
+/* Instagram embed container adjustments */
+.instagram-post-large {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Ensure Instagram's injected blockquote scales responsively */
+.instagram-post-large blockquote.instagram-media,
+.instagram-post-large .instagram-media {
+    width: 100% !important;
+    max-width: 720px !important;
+}
+
+/* Improve spacing when there's a single centered post on mobile */
+@media (max-width: 768px) {
+    .instagram-grid-3 > *:only-child {
+        max-width: 100%;
+        padding: 0 12px;
+    }
+    .instagram-post-large blockquote.instagram-media,
+    .instagram-post-large .instagram-media {
+        max-width: 100% !important;
+    }
+}
+
 .instagram-post-large {
     position: relative;
     aspect-ratio: 1;
@@ -954,6 +989,22 @@ ul {
 
 .instagram-cta {
     text-align: center;
+}
+
+/* Make the Instagram follow button size to its content (no fixed min-width) */
+.instagram-cta .instagram-follow {
+    min-width: auto;
+    width: auto;
+    padding: 10px 18px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+
+.instagram-cta .instagram-follow .btn-icon-img {
+    width: 20px;
+    height: 20px;
 }
 
 /* ===========================

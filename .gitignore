@@ -29,3 +29,5 @@ react-app/.env.*
 coverage/
 *.local
 *.cache
+# Local Netlify folder
+.netlify

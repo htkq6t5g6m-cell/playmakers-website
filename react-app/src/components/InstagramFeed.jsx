@@ -53,12 +53,12 @@ const InstagramFeed = () => {
         </div>
 
         <div className="instagram-cta">
-          <a 
-            href={contactInfo.instagram}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-primary btn-large"
-          >
+            <a 
+              href={contactInfo.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-cta instagram-follow"
+            >
             <img className="btn-icon-img" src="/icons/instagram.svg" alt="Instagram" />
             Follow {contactInfo.instagramHandle}
           </a>
