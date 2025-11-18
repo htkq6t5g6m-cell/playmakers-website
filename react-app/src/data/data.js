@@ -198,24 +198,11 @@ export const videos = [
 export const instagramPosts = [
   {
     id: 1,
-    image: '/images/instagram/post1.jpg',
-    alt: 'Latest training session from @playmakers_football',
-    caption: 'Latest post from @playmakers_football',
-    url: 'https://instagram.com/playmakers_football'
-  },
-  {
-    id: 2,
+    // Keeping only the centre reel as requested
     image: '/images/instagram/post2.jpg',
-    alt: 'Recent coaching session from @playmakers_football',
-    caption: 'Recent post from @playmakers_football',
-    url: 'https://instagram.com/playmakers_football'
-  },
-  {
-    id: 3,
-    image: '/images/instagram/post3.jpg',
-    alt: 'Player development from @playmakers_football',
-    caption: 'Earlier post from @playmakers_football',
-    url: 'https://instagram.com/playmakers_football'
+    alt: 'Latest reel from @playmakers_football',
+    caption: 'Latest post from @playmakers_football',
+    url: 'https://www.instagram.com/playmakers_football/reel/DQG8yOzjIca/'
   }
 ];
 
