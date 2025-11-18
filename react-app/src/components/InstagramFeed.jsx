@@ -1,8 +1,39 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import InstagramPost from './InstagramPost';
 import { instagramPosts, contactInfo } from '../data/data';
 
+const loadInstagramScript = () => {
+  if (window.instgrm) return Promise.resolve();
+  return new Promise((resolve) => {
+    const script = document.createElement('script');
+    script.async = true;
+    script.defer = true;
+    script.src = 'https://www.instagram.com/embed.js';
+    script.id = 'instagram-embed-script';
+    script.onload = () => resolve();
+    document.body.appendChild(script);
+  });
+};
+
 const InstagramFeed = () => {
+  const widgetRef = useRef(null);
+
+  useEffect(() => {
+    let mounted = true;
+    loadInstagramScript().then(() => {
+      if (!mounted) return;
+      try {
+        if (window.instgrm && window.instgrm.Embeds && widgetRef.current) {
+          window.instgrm.Embeds.process();
+        }
+      } catch (e) {
+        // ignore
+      }
+    });
+
+    return () => { mounted = false; };
+  }, [instagramPosts]);
+
   return (
     <section className="instagram-feed">
       <div className="container">
@@ -10,9 +41,9 @@ const InstagramFeed = () => {
         <p className="section-subtitle text-center">
           See our latest training sessions, player development, and coaching highlights on Instagram
         </p>
-        
+
         <div className="instagram-embed">
-          <div className="instagram-widget" id="instagram-widget">
+          <div className="instagram-widget" id="instagram-widget" ref={widgetRef}>
             <div className="instagram-grid-3">
               {instagramPosts.map((post) => (
                 <InstagramPost key={post.id} post={post} />
@@ -20,7 +51,7 @@ const InstagramFeed = () => {
             </div>
           </div>
         </div>
-        
+
         <div className="instagram-cta">
           <a 
             href={contactInfo.instagram}
