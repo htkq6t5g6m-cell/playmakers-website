@@ -8,7 +8,7 @@ const HeroSection = () => {
       <video autoPlay muted loop playsInline className="hero-video">
         <source src="videos/hero-background.mp4" type="video/mp4" />
       </video>
-      <div className="hero-overlay"></div>
+      {/* Overlay removed (kept comment for reference) */}
       <div className="hero-content">
         <img src="/images/logo/logo.jpg" alt="PLAYMAKERS" style={{ maxWidth: '400px', width: '100%', height: 'auto', marginBottom: '20px', display: 'block', marginLeft: 'auto', marginRight: 'auto' }} />
         <p className="hero-subtitle">CHESHIRE FOOTBALL COACHING</p>
