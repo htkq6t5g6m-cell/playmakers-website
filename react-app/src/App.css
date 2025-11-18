@@ -623,21 +623,6 @@ ul {
     background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url("/images/page-images/flood.png") center/cover no-repeat;
     background-attachment: fixed;
 }
-.services {
-    padding: var(--section-padding);
-    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url("/images/page-images/flood.png") center/cover no-repeat;
-    background-attachment: fixed;
-}
-.services {
-    padding: var(--section-padding);
-    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url("/images/page-images/flood.png") center/cover no-repeat;
-    background-attachment: fixed;
-}
-.services {
-    padding: var(--section-padding);
-    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url("/images/page-images/flood.png") center/cover no-repeat;
-    background-attachment: fixed;
-}
 
 .services .section-heading {
     color: var(--color-orange);
