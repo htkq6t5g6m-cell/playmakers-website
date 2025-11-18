@@ -278,7 +278,7 @@ ul {
     align-items: center;
     justify-content: center;
     /* Remove dark gradient/filter and show raw image */
-    background: url("/images/page-images/background.png") no-repeat center top / cover;
+    background: url("/images/page-images/flood.png") no-repeat center top / cover;
     background-attachment: fixed;
     text-align: center;
     color: var(--color-white);
@@ -620,22 +620,22 @@ ul {
 
 .services {
     padding: var(--section-padding);
-    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url("/images/page-images/background.png") center/cover no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url("/images/page-images/flood.png") center/cover no-repeat;
     background-attachment: fixed;
 }
 .services {
     padding: var(--section-padding);
-    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url("/images/page-images/background.png") center/cover no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url("/images/page-images/flood.png") center/cover no-repeat;
     background-attachment: fixed;
 }
 .services {
     padding: var(--section-padding);
-    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url("/images/page-images/background.png") center/cover no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url("/images/page-images/flood.png") center/cover no-repeat;
     background-attachment: fixed;
 }
 .services {
     padding: var(--section-padding);
-    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url("/images/page-images/background.png") center/cover no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url("/images/page-images/flood.png") center/cover no-repeat;
     background-attachment: fixed;
 }
 
