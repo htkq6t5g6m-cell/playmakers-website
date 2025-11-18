@@ -4,11 +4,7 @@ import { contactInfo } from '../data/data';
 const HeroSection = () => {
   return (
     <section className="hero" id="home">
-      {/* Background Video */}
-      <video autoPlay muted loop playsInline className="hero-video">
-        <source src="videos/hero-background.mp4" type="video/mp4" />
-      </video>
-      {/* Overlay removed (kept comment for reference) */}
+      {/* Video removed so background image is visible */}
       <div className="hero-content">
         <img src="/images/logo/logo.jpg" alt="PLAYMAKERS" style={{ maxWidth: '400px', width: '100%', height: 'auto', marginBottom: '20px', display: 'block', marginLeft: 'auto', marginRight: 'auto' }} />
         <p className="hero-subtitle">CHESHIRE FOOTBALL COACHING</p>

@@ -286,16 +286,8 @@ ul {
 }
 
 .hero-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translate(-50%, -50%);
-    z-index: 0;
-    object-fit: cover;
+    /* Hidden so the hero background image is visible */
+    display: none;
 }
 
 /* Hero overlay no longer used (kept empty if component still renders it) */
