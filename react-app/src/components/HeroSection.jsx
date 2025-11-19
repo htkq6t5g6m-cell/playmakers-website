@@ -1,4 +1,6 @@
 import React, { useEffect, useRef } from 'react';
+
+const HeroSection = () => {
   const videoRef = useRef(null);
   const heroRef = useRef(null);
 
@@ -7,45 +9,59 @@ import React, { useEffect, useRef } from 'react';
     const heroEl = heroRef.current;
     if (!videoEl || !heroEl) return;
 
-    // Lazy play when hero enters viewport
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          try {
-            if (videoEl.paused) {
-              videoEl.play().catch(() => {});
-            }
-          } catch (_) {}
-        }
+    // Defer source insertion until intersection
+    const injectSources = () => {
+      if (videoEl.dataset.sourcesInjected) return;
+      const w = window.innerWidth;
+      const portrait = window.matchMedia('(orientation: portrait)').matches;
+      const small = w <= 480 && portrait;
+      // Choose variant paths
+      const sources = small ? [
+        { src: '/images/page-images/hero-mobile.mp4', type: 'video/mp4' },
+        { src: '/images/page-images/hero-mobile.webm', type: 'video/webm' }
+      ] : [
+        { src: '/images/page-images/hero.mp4', type: 'video/mp4' },
+        { src: '/images/page-images/hero.webm', type: 'video/webm' },
+        { src: '/images/page-images/hero.mov', type: 'video/quicktime' }
+      ];
+      sources.forEach(def => {
+        const s = document.createElement('source');
+        s.src = def.src;
+        s.type = def.type;
+        videoEl.appendChild(s);
       });
-    }, { threshold: 0.4 });
-    io.observe(heroEl);
+      videoEl.dataset.sourcesInjected = 'true';
+      try { videoEl.load(); } catch (_) {}
+    };
 
-    // Orientation / size fit toggle without broadening breakpoint
     const applyFit = () => {
       const w = window.innerWidth;
       const portrait = window.matchMedia('(orientation: portrait)').matches;
-      // Only adjust for very small screens (keep breakpoint logic)
-      if (w <= 480) {
-        if (portrait) {
-          videoEl.classList.add('contain-fit');
-          videoEl.classList.remove('cover-fit');
-          heroEl.classList.add('contain-mode');
-        } else {
-          // Landscape small phone: prefer cover for immersion
-          videoEl.classList.add('cover-fit');
-          videoEl.classList.remove('contain-fit');
-          heroEl.classList.remove('contain-mode');
-        }
+      if (w <= 480 && portrait) {
+        videoEl.classList.add('contain-fit');
+        videoEl.classList.remove('cover-fit');
+        heroEl.classList.add('contain-mode');
       } else {
-        // Larger screens revert to cover
         videoEl.classList.add('cover-fit');
         videoEl.classList.remove('contain-fit');
         heroEl.classList.remove('contain-mode');
       }
     };
-    applyFit();
-    const resizeHandler = () => applyFit();
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          injectSources();
+          applyFit();
+          try { if (videoEl.paused) { videoEl.play().catch(() => {}); } } catch (_) {}
+        }
+      });
+    }, { threshold: 0.25 });
+    io.observe(heroEl);
+
+    const resizeHandler = () => {
+      applyFit();
+    };
     window.addEventListener('resize', resizeHandler);
     window.addEventListener('orientationchange', resizeHandler);
 
@@ -57,50 +73,29 @@ import React, { useEffect, useRef } from 'react';
   }, []);
 
   return (
-const HeroSection = () => {
-  return (
-    <section
-      ref={heroRef}
-      className="hero"
-      id="home"
-    >
-        // Autoplay behavior will be triggered via IntersectionObserver
+    <section ref={heroRef} className="hero" id="home">
+      <video
         className="hero-video"
-        autoPlay
-        preload="metadata"
-        poster="/images/page-images/hero.jpg"
         muted
         playsInline
+        preload="metadata"
+        poster="/images/page-images/hero.jpg"
         aria-hidden="true"
-        onEnded={(e) => {
-          // Ensure the last frame is retained; pause explicitly.
-          e.currentTarget.pause();
-        }}
-        preload="auto"
+        onEnded={(e) => { e.currentTarget.pause(); }}
         onError={(e) => {
-          // If video fails, hide the element so the section background fallback is visible.
-        ref={videoRef}
-          try { e.currentTarget.style.display = 'none'; } catch (err) { /* ignore */ }
+          try { e.currentTarget.style.display = 'none'; } catch (_) {}
           console.warn('Hero video failed to load', e);
         }}
+        ref={videoRef}
       >
-        {/* Try common formats for broader browser compatibility. */}
-        <source src="/images/page-images/hero.mp4" type="video/mp4" />
-        <source src="/images/page-images/hero.webm" type="video/webm" />
-        {/* Fallback mov (may be used by Safari) */}
-        <source src="/images/page-images/hero.mov" type="video/quicktime" />
+        {/* Sources injected lazily */}
         Your browser does not support the hero background video.
       </video>
       <div className="hero-content" style={{ marginTop: '70vh' }}>
-        <p className="hero-text">
-          coached by footballers, for footballers
-        </p>
+        <p className="hero-text">coached by footballers, for footballers</p>
         <div className="hero-buttons">
-          <a href="#book" className="btn btn-large hero-book-btn">
-            Book a Session
-          </a>
+          <a href="#book" className="btn btn-large hero-book-btn">Book a Session</a>
         </div>
-        {/* Removed scroll indicator */}
       </div>
     </section>
   );
