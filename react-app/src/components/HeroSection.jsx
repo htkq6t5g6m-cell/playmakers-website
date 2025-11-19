@@ -1,27 +1,46 @@
 import React from 'react';
-import { contactInfo } from '../data/data';
 
 const HeroSection = () => {
   return (
-    <section className="hero" id="home">
-      {/* Video removed so background image is visible */}
-      <div className="hero-content">
-        <img src="/images/logo/logo.jpg" alt="PLAYMAKERS" style={{ maxWidth: '400px', width: '100%', height: 'auto', marginBottom: '20px', display: 'block', marginLeft: 'auto', marginRight: 'auto' }} />
-        <p className="hero-subtitle">CHESHIRE FOOTBALL COACHING</p>
+    <section
+      className="hero"
+      id="home"
+      style={{
+        background: 'url(/images/page-images/hero.jpg) center/cover no-repeat, #000'
+      }}
+    >
+      <video
+        className="hero-video"
+        autoPlay
+        muted
+        playsInline
+        poster="/images/page-images/hero.jpg"
+        aria-hidden="true"
+        onEnded={(e) => {
+          // Ensure the last frame is retained; pause explicitly.
+          e.currentTarget.pause();
+        }}
+        preload="auto"
+        onError={(e) => {
+          // If video fails, hide the element so the section background fallback is visible.
+          try { e.currentTarget.style.display = 'none'; } catch (err) { /* ignore */ }
+          console.warn('Hero video failed to load', e);
+        }}
+      >
+        {/* Try common formats for broader browser compatibility. */}
+        <source src="/images/page-images/hero.mp4" type="video/mp4" />
+        <source src="/images/page-images/hero.webm" type="video/webm" />
+        {/* Fallback mov (may be used by Safari) */}
+        <source src="/images/page-images/hero.mov" type="video/quicktime" />
+        Your browser does not support the hero background video.
+      </video>
+      <div className="hero-content" style={{ marginTop: '80vh' }}>
         <p className="hero-text">
           coached by footballers, for footballers
         </p>
         <div className="hero-buttons">
-          <a href="#book" className="btn btn-secondary btn-large">
+          <a href="#book" className="btn btn-large hero-book-btn">
             Book a Session
-          </a>
-          <a 
-            href={contactInfo.whatsapp} 
-            className="btn btn-secondary btn-large"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            WhatsApp Us
           </a>
         </div>
         {/* Removed scroll indicator */}

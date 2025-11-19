@@ -44,8 +44,9 @@ const Header = () => {
   const navLinks = [
     { href: '#home', label: 'Home' },
     { href: '#coaches', label: 'Coaches' },
-    { href: '#sessions', label: 'Sessions' },
+    { href: '#sessions', label: 'Services' },
     { href: '#reviews', label: 'Why Us' },
+    { href: '#testimonials', label: 'Testimonials' },
     { href: '#contact', label: 'Contact' }
   ];
 
@@ -83,7 +84,7 @@ const Header = () => {
             </ul>
           </nav>
           
-          <a href="#contact" className="btn btn-primary btn-header">
+          <a href="#book" className="btn btn-primary btn-header">
             Book Now
           </a>
           

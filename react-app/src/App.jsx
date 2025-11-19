@@ -7,6 +7,7 @@ import CoachesSection from './components/CoachesSection';
 import WhyChooseUsSection from './components/WhyChooseUsSection';
 import SessionsSection from './components/SessionsSection';
 import VideoGallery from './components/VideoGallery';
+import TestimonialsSection from './components/TestimonialsSection';
 import BookingSection from './components/BookingSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
@@ -26,6 +27,7 @@ function App() {
         <WhyChooseUsSection />
         <SessionsSection />
         <VideoGallery />
+        <TestimonialsSection />
         <BookingSection />
         <ContactSection />
       </main>

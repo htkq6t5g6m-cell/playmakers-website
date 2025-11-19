@@ -226,3 +226,42 @@ export const contactInfo = {
   instagramHandle: '@playmakers_football',
   facebook: 'https://m.facebook.com/playmakerscheshirefootballcoaching/?utm_source=ig&utm_medium=social&utm_content=link_in_bio'
 };
+
+// Testimonials Data (parents) - easily editable
+export const testimonials = [
+  {
+    id: 1,
+    name: 'Sarah L.',
+    label: 'Parent of U9 Player',
+    text: 'My son has grown in confidence and technique week after week. The coaching is detailed yet really enjoyable. He looks forward to every session.',
+    avatar: null // placeholder; swap with image path if desired
+  },
+  {
+    id: 2,
+    name: 'David R.',
+    label: 'Parent of U10 Player',
+    text: 'Professional, encouraging and tailored. The coaches understand exactly what each player needs and explain things clearly. Huge improvement in decision-making.',
+    avatar: null
+  },
+  {
+    id: 3,
+    name: 'Emma T.',
+    label: 'Parent of U12 Player',
+    text: 'The sessions are high quality and structured like academy training. My daughter comes away motivated with clear things to work on at home.',
+    avatar: null
+  },
+  {
+    id: 4,
+    name: 'James P.',
+    label: 'Parent of U8 Player',
+    text: 'Outstanding technical focus delivered in a really positive environment. We have seen noticeable improvement in ball control and awareness.',
+    avatar: null
+  },
+  {
+    id: 5,
+    name: 'Laura M.',
+    label: 'Parent of U11 Player',
+    text: 'The personalised feedback and genuine care shown by the coaches sets this apart. My son is more composed and purposeful in matches now.',
+    avatar: null
+  }
+];
