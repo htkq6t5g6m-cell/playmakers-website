@@ -244,6 +244,24 @@ body { background: #000; color: var(--color-white); }
     background: #000; /* fallback color while video loads */
 }
 
+/* State when video uses contain fit (letterbox) */
+.hero.contain-mode::before,
+.hero.contain-mode::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    pointer-events: none;
+    z-index: 1;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0));
+}
+.hero.contain-mode::before { top: 0; }
+.hero.contain-mode::after {
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0));
+}
+
 .hero-video {
     position: absolute;
     top: 0;
@@ -256,6 +274,10 @@ body { background: #000; color: var(--color-white); }
     z-index: 0;
     background: #000; /* black while video initializes */
 }
+
+/* Dynamic fit variants toggled by JS */
+.hero-video.cover-fit { object-fit: cover; }
+.hero-video.contain-fit { object-fit: contain; aspect-ratio: 16 / 9; }
 
 /* Hero overlay no longer used (kept empty if component still renders it) */
 .hero-overlay {
@@ -971,14 +993,8 @@ body { background: #000; color: var(--color-white); }
     .form-grid{grid-template-columns:1fr}
     .booking-form{padding:20px}
     .form-actions{flex-direction:column;align-items:flex-start}
-}
-
-
-/* ===========================
-   FOOTER
-   =========================== */
-
-.footer {
+    /* Base small-screen default; JS may still toggle */
+    .hero-video { object-fit: contain; aspect-ratio: 16 / 9; }
     background-color: var(--color-black);
     color: var(--color-white);
     padding: 40px 20px 20px;
