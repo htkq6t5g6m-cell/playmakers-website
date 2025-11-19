@@ -13,11 +13,13 @@ import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import './App.css';
 import ScrollProgress from './components/ScrollProgress';
+import BackToTop from './components/BackToTop';
 
 function App() {
   return (
     <div className="App">
       <ScrollProgress />
+      <BackToTop />
       <Header />
       <main>
         <HeroSection />

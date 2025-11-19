@@ -23,6 +23,7 @@ const ScrollProgress = () => {
 
   return (
     <div className="scroll-progress" aria-hidden="true">
+      <span className="scroll-progress__label">Scroll</span>
       <div className="scroll-progress__track">
         <div className="scroll-progress__bar" style={{ height: `${progress}%` }} />
       </div>

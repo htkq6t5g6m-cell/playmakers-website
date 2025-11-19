@@ -23,6 +23,7 @@ import React, { useState } from 'react';
 
 const BookingSection = () => {
   const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const phonePattern = /^\+?[0-9\s()\-]{7,20}$/;
 
@@ -51,6 +52,7 @@ const BookingSection = () => {
     if (Object.keys(e).length > 0) {
       ev.preventDefault();
       setErrors(e);
+      setIsSubmitting(false);
       // focus first invalid field
       const first = Object.keys(e)[0];
       const input = formEl.querySelector(`[name="${first}"]`);
@@ -58,6 +60,8 @@ const BookingSection = () => {
       return false;
     }
 
+    setErrors({});
+    setIsSubmitting(true);
     // Allow default form submission (Netlify will capture and then redirect to booking-success.html)
     // Optionally: we could submit via fetch to '/' to show an inline success state without redirect,
     // but using a normal POST → success page keeps Netlify's form handling simple and works with JS off.
@@ -121,8 +125,15 @@ const BookingSection = () => {
           </div>
 
           <div className="form-actions">
-            <button type="submit" className="btn btn-primary">Request Booking</button>
-            <p className="form-help">After submission Jack will receive your details and will contact you within 24–48 hours to confirm availability.</p>
+            <button type="submit" className="btn btn-primary" disabled={isSubmitting}>
+              {isSubmitting ? 'Sending…' : 'Request Booking'}
+              {isSubmitting && <span className="loading-spinner" aria-hidden="true" />}
+            </button>
+            <p className="form-help" aria-live="polite">
+              {isSubmitting
+                ? 'Submitting your request — please keep the tab open.'
+                : 'After submission Jack will receive your details and will contact you within 24–48 hours to confirm availability.'}
+            </p>
           </div>
         </form>
 

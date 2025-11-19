@@ -1,23 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 const Header = () => {
+  const isClient = typeof window !== 'undefined';
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isMobile, setIsMobile] = useState(() => (isClient ? window.innerWidth <= 768 : false));
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-    // Prevent body scroll when menu is open
-    if (!isMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
+    setIsMenuOpen((prev) => {
+      const next = !prev;
+      document.body.style.overflow = next ? 'hidden' : '';
+      return next;
+    });
   };
 
-  const closeMenu = () => {
+  const closeMenu = useCallback(() => {
     setIsMenuOpen(false);
     document.body.style.overflow = '';
-  };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,20 +25,47 @@ const Header = () => {
       setScrolled(scrollTop > 50);
     };
 
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth > 768) {
+      const mobile = window.innerWidth <= 768;
+      setIsMobile(mobile);
+      if (!mobile) closeMenu();
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [closeMenu]);
+
+  useEffect(() => {
+    if (!isMenuOpen) return undefined;
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
         closeMenu();
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('keydown', handleKeyDown);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleResize);
-      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
     };
+  }, [isMenuOpen]);
+
+  useEffect(() => () => {
+    document.body.style.overflow = '';
   }, []);
 
   const navLinks = [
@@ -47,6 +74,7 @@ const Header = () => {
     { href: '#sessions', label: 'Services' },
     { href: '#reviews', label: 'Why Us' },
     { href: '#testimonials', label: 'Testimonials' },
+    { href: '#book', label: 'Book Now' },
     { href: '#contact', label: 'Contact' }
   ];
 
@@ -68,7 +96,11 @@ const Header = () => {
             </a>
           </div>
           
-          <nav className={`nav ${isMenuOpen ? 'active' : ''}`} id="nav">
+          <nav
+            className={`nav ${isMenuOpen ? 'active' : ''}`}
+            id="primary-navigation"
+            aria-hidden={isMobile ? !isMenuOpen : false}
+          >
             <ul className="nav-list">
               {navLinks.map((link) => (
                 <li key={link.href}>
@@ -83,15 +115,18 @@ const Header = () => {
               ))}
             </ul>
           </nav>
-          
-          <a href="#book" className="btn btn-primary btn-header">
-            Book Now
-          </a>
+          <div 
+            className={`nav-overlay ${isMenuOpen ? 'active' : ''}`} 
+            onClick={closeMenu}
+            aria-hidden="true"
+          />
           
           <button 
             className={`hamburger ${isMenuOpen ? 'active' : ''}`}
             id="hamburger"
             aria-label="Toggle menu"
+            aria-controls="primary-navigation"
+            aria-expanded={isMenuOpen}
             onClick={toggleMenu}
           >
             <span></span>
