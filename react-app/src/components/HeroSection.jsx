@@ -12,7 +12,7 @@ const HeroSection = () => {
           coached by footballers, for footballers
         </p>
         <div className="hero-buttons">
-          <a href="#contact" className="btn btn-secondary btn-large">
+          <a href="#book" className="btn btn-secondary btn-large">
             Book a Session
           </a>
           <a 

@@ -7,7 +7,7 @@ import CoachesSection from './components/CoachesSection';
 import WhyChooseUsSection from './components/WhyChooseUsSection';
 import SessionsSection from './components/SessionsSection';
 import VideoGallery from './components/VideoGallery';
-import InstagramFeed from './components/InstagramFeed';
+import BookingSection from './components/BookingSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import './App.css';
@@ -26,7 +26,7 @@ function App() {
         <WhyChooseUsSection />
         <SessionsSection />
         <VideoGallery />
-        <InstagramFeed />
+        <BookingSection />
         <ContactSection />
       </main>
       <Footer />
