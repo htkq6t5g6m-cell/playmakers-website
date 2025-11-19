@@ -5,16 +5,12 @@ const HeroSection = () => {
     <section
       className="hero"
       id="home"
-      style={{
-        background: 'url(/images/page-images/hero.jpg) center/cover no-repeat, #000'
-      }}
     >
       <video
         className="hero-video"
         autoPlay
         muted
         playsInline
-        poster="/images/page-images/hero.jpg"
         aria-hidden="true"
         onEnded={(e) => {
           // Ensure the last frame is retained; pause explicitly.
@@ -34,7 +30,7 @@ const HeroSection = () => {
         <source src="/images/page-images/hero.mov" type="video/quicktime" />
         Your browser does not support the hero background video.
       </video>
-      <div className="hero-content" style={{ marginTop: '80vh' }}>
+      <div className="hero-content" style={{ marginTop: '70vh' }}>
         <p className="hero-text">
           coached by footballers, for footballers
         </p>
