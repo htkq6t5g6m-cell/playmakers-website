@@ -70,6 +70,7 @@ const Header = () => {
 
   const navLinks = [
     { href: '#home', label: 'Home' },
+    { href: '#about', label: 'About' },
     { href: '#coaches', label: 'Coaches' },
     { href: '#sessions', label: 'Services' },
     { href: '#reviews', label: 'Why Us' },

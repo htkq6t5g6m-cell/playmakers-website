@@ -34,68 +34,41 @@ const HeroSection = () => {
       try { videoEl.load(); } catch (_) {}
     };
 
-    const applyFit = () => {
-      const w = window.innerWidth;
-      const portrait = window.matchMedia('(orientation: portrait)').matches;
-      if (w <= 480 && portrait) {
-        videoEl.classList.add('contain-fit');
-        videoEl.classList.remove('cover-fit');
-        heroEl.classList.add('contain-mode');
-      } else {
-        videoEl.classList.add('cover-fit');
-        videoEl.classList.remove('contain-fit');
-        heroEl.classList.remove('contain-mode');
-      }
-    };
-
     const io = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           injectSources();
-          applyFit();
           try { if (videoEl.paused) { videoEl.play().catch(() => {}); } } catch (_) {}
         }
       });
     }, { threshold: 0.25 });
     io.observe(heroEl);
 
-    const resizeHandler = () => {
-      applyFit();
-    };
-    window.addEventListener('resize', resizeHandler);
-    window.addEventListener('orientationchange', resizeHandler);
-
     return () => {
       io.disconnect();
-      window.removeEventListener('resize', resizeHandler);
-      window.removeEventListener('orientationchange', resizeHandler);
     };
   }, []);
 
   return (
     <section ref={heroRef} className="hero" id="home">
-      <video
-        className="hero-video"
-        muted
-        playsInline
-        preload="metadata"
-        poster="/images/page-images/hero.jpg"
-        aria-hidden="true"
-        onEnded={(e) => { e.currentTarget.pause(); }}
-        onError={(e) => {
-          try { e.currentTarget.style.display = 'none'; } catch (_) {}
-          console.warn('Hero video failed to load', e);
-        }}
-        ref={videoRef}
-      >
-        {/* Sources injected lazily */}
-        Your browser does not support the hero background video.
-      </video>
-      <div className="hero-content" style={{ marginTop: '70vh' }}>
-        <p className="hero-text">coached by footballers, for footballers</p>
-        <div className="hero-buttons">
-          <a href="#book" className="btn btn-large hero-book-btn">Book a Session</a>
-        </div>
+      <div className="hero-media" aria-hidden="true">
+        <video
+          className="hero-video"
+          muted
+          playsInline
+          preload="metadata"
+          poster="/images/page-images/hero.jpg"
+          aria-hidden="true"
+          onEnded={(e) => { e.currentTarget.pause(); }}
+          onError={(e) => {
+            try { e.currentTarget.style.display = 'none'; } catch (_) {}
+            console.warn('Hero video failed to load', e);
+          }}
+          ref={videoRef}
+        >
+          {/* Sources injected lazily */}
+          Your browser does not support the hero background video.
+        </video>
       </div>
     </section>
   );

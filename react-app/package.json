@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --port 3005 --strictPort",
+    "dev:force": "PIDS=$(lsof -ti tcp:3005 || true); if [ -n \"$PIDS\" ]; then echo \"Killing port 3005 PIDs: $PIDS\"; echo \"$PIDS\" | xargs kill -9 || true; fi; vite --port 3005 --strictPort",
     "build": "vite build",
     "preview": "vite preview --port 3006 --strictPort"
   },
