@@ -2,7 +2,7 @@
 export const coaches = [
   {
     id: 1,
-    name: 'Coach Jack',
+    name: 'Coach Jack - Founder',
     role: 'Advanced Talent Coach | Ex-Everton FC',
     bio: 'A highly knowledgeable and experienced coach with a strong academy playing background at Accrington Stanley, Stoke City, and Manchester City. As an ex–Everton FC Advanced Talent Coach, he has developed a reputation for his ability to analyse and adjust technique, identify a player\'s specific needs, and design sessions that deliver clear, measurable improvement. Dedicated, supportive, and technically driven, he brings professional insight and a passion for helping players unlock their full potential.',
     image: '/images/coaches/jack.jpg',
