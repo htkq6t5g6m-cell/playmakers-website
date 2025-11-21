@@ -26,6 +26,16 @@
     --transition-smooth: all 0.3s ease;
 }
 
+/* Layout tweak: move testimonial controls and dots down slightly to avoid overlap
+     with larger service cards. Adjust values if you want more/less spacing. */
+.services .testimonial-controls {
+    margin-top: 40px; /* was 24px */
+}
+
+.services .testimonial-dots {
+    margin-top: 28px; /* was 12px */
+}
+
 /* Global body fallback to prevent white flash */
 html, body { height: 100%; }
 body { background: #000; color: var(--color-white); }
@@ -696,6 +706,10 @@ body { background: #000; color: var(--color-white); }
 
 .feature-box {
     text-align: center;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 18px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
 }
 
 .feature-image {
@@ -735,9 +749,56 @@ body { background: #000; color: var(--color-white); }
     color: var(--color-orange);
 }
 
-/* Make section headings use the brand orange by default */
+/* Apply the same interactive treatments used for videos to Why Choose Us feature cards */
+.feature-box,
+.feature-box .feature-image,
+.feature-box img,
+.feature-box video,
+.feature-box .feature-media {
+    transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
+    will-change: transform, box-shadow, filter;
+}
+
+.feature-box:hover,
+.feature-box:active {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 12px 35px rgba(255,107,53,0.30);
+    border-color: var(--color-orange);
+}
+
+.feature-box:hover .feature-image img,
+.feature-box:hover img,
+.feature-box:hover video {
+    transform: scale(1.05);
+    box-shadow: 0 18px 40px rgba(255,107,53,0.12), 0 0 40px rgba(255,107,53,0.18);
+    filter: drop-shadow(0 6px 20px rgba(255,107,53,0.18));
+}
+
+/* Keyboard accessibility: focus styles for feature boxes */
+.feature-box:focus-within,
+.feature-box:focus {
+    box-shadow: 0 12px 30px rgba(255,107,53,0.10), 0 0 30px rgba(255,107,53,0.14);
+    outline: 3px solid rgba(255,107,53,0.08);
+    outline-offset: 6px;
+}
+
+/* Make section headings use the brand orange by default and ensure
+   headings and subtitles are centered and constrained for readability */
 .section-heading {
     color: var(--color-orange);
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 900px;
+    width: 100%;
+}
+.section-subtitle {
+    /* Keep subtitle color rules scoped per-section; only enforce centering here */
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 900px;
+    width: 100%;
 }
 
 .feature-text {
@@ -768,38 +829,212 @@ body { background: #000; color: var(--color-white); }
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 32px;
+    align-items: stretch; /* ensure grid items stretch to equal height */
+    grid-auto-rows: 1fr;  /* make rows equal height so cards match */
+}
+
+/* Horizontal carousel track for services (used by SessionsSection) */
+.services-carousel {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+}
+
+.services-track {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 6px;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+}
+
+.services-track::-webkit-scrollbar { height: 8px; }
+.services-track::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.06); border-radius: 8px; }
+
+.service-item {
+    scroll-snap-align: start;
+    flex: 0 0 340px; /* visible card width, adjusts via media queries */
+    max-width: 340px;
+}
+
+@media (min-width: 1200px) {
+    .service-item { flex: 0 0 360px; max-width: 360px; }
+}
+@media (max-width: 768px) {
+    .service-item { flex: 0 0 92%; max-width: 92%; }
+    .services-track { gap: 16px; }
+}
+
+/* 3D carousel styles (carousel-3d) */
+.carousel-3d {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-items: center;
+}
+
+.service-stage {
+    position: relative;
+    width: 100%;
+    max-width: 1100px;
+    height: 460px; /* stage height - controls card height */
+    perspective: 1400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.service-item {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.7s cubic-bezier(.2,.9,.2,1), opacity 0.45s ease, filter 0.45s ease;
+    width: 360px;
+    max-width: 360px;
+    box-sizing: border-box;
+}
+
+.service-item .service-card { width: 100%; height: 420px; }
+
+.service-item.hidden { opacity: 0; pointer-events: none; transform: translate(-50%, -40%) scale(0.65); }
+
+.service-item.active {
+    z-index: 40;
+    transform: translate(-50%, -50%) translateZ(0px) scale(1) rotateY(0deg);
+    opacity: 1;
+}
+
+.service-item.prev, .service-item.next {
+    z-index: 20;
+    opacity: 0.9;
+    transform-origin: center center;
+}
+
+.service-item.prev {
+    transform: translate(-50%, -50%) translateX(-28%) translateZ(-120px) scale(0.86) rotateY(12deg);
+    filter: blur(0.6px) brightness(0.92) saturate(0.95);
+}
+
+.service-item.next {
+    transform: translate(-50%, -50%) translateX(28%) translateZ(-120px) scale(0.86) rotateY(-12deg);
+    filter: blur(0.6px) brightness(0.92) saturate(0.95);
+}
+
+.service-item.prev-behind, .service-item.next-behind {
+    z-index: 10;
+    opacity: 0.55;
+    transform-origin: center center;
+}
+
+.service-item.prev-behind {
+    transform: translate(-50%, -50%) translateX(-48%) translateZ(-240px) scale(0.72) rotateY(16deg);
+    filter: blur(1.8px) brightness(0.86);
+}
+
+.service-item.next-behind {
+    transform: translate(-50%, -50%) translateX(48%) translateZ(-240px) scale(0.72) rotateY(-16deg);
+    filter: blur(1.8px) brightness(0.86);
+}
+
+/* Make sure the centered card has the orange glow and border on hover/focus */
+.service-item.active .service-card:hover,
+.service-item.active .service-card:focus-within {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 50px rgba(255,107,53,0.28);
+    border-color: var(--color-orange);
+}
+
+@media (max-width: 992px) {
+    .service-stage { height: 520px; }
+    .service-item { width: 320px; max-width: 320px; }
+    .service-item .service-card { height: 480px; }
+}
+
+@media (max-width: 768px) {
+    .service-stage { height: auto; perspective: none; }
+    .service-item { position: static; transform: none; width: 92%; max-width: 92%; margin: 0 auto; }
+    .service-item.hidden, .service-item.prev-behind, .service-item.next-behind { display: none; }
+    .service-item.prev, .service-item.next { position: static; transform: none; opacity: 0.95; }
+    .service-item .service-card { height: auto; }
 }
 
 .service-card {
-    background-color: rgba(255,255,255,0.04);
-        background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02)); /* glass base */
-        border: 1px solid rgba(255,255,255,0.12);
-        border-top: 3px solid var(--color-orange);
-        border-radius: 16px;
-        padding: 36px 40px;
-        transition: var(--transition-smooth);
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        width: min(640px, 92vw); /* Consistent, responsive width */
-        min-height: 420px; /* Consistent height */
-        box-sizing: border-box;
+    /* Solid background to avoid showing cards behind (remove glass effect) */
+    background: rgba(8,8,8,0.96);
+    border: 1px solid rgba(255,255,255,0.06); /* faint grey border */
+    border-radius: 16px;
+    padding: 36px 40px;
     transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%; /* fill grid cell for consistent widths */
+    max-width: 640px;
+    min-height: 420px; /* baseline consistent height */
+    height: 100%; /* let grid-auto-rows control final height */
+    box-sizing: border-box;
 }
 
-/* Glass effect support */
+/* Ensure strong box-shadow without backdrop blur */
 .service-card {
-    backdrop-filter: blur(8px) saturate(120%);
-    -webkit-backdrop-filter: blur(8px) saturate(120%);
     background-clip: padding-box;
     box-shadow: 0 8px 30px rgba(0,0,0,0.45);
 }
 
-.service-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        border-top-color: var(--color-orange-dark);
-        box-shadow: 0 18px 40px -8px rgba(0,0,0,0.6);
+/* Apply the same interactive treatments used for videos to service cards */
+.service-card,
+.service-card .service-title,
+.service-card .service-text,
+.service-card img,
+.service-card video,
+.service-card .service-media {
+    transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
+    will-change: transform, box-shadow, filter;
+}
+
+/* Hover / pointer interaction: subtle lift + orange glow similar to .video-item */
+/* Removed duplicate top-only orange border behavior; hover handled by unified rules above */
+
+.service-card:hover .service-media,
+.service-card:hover img,
+.service-card:hover video {
+    transform: scale(1.02);
+    box-shadow: 0 18px 40px rgba(255,107,53,0.12), 0 0 40px rgba(255,107,53,0.18);
+    filter: drop-shadow(0 6px 20px rgba(255,107,53,0.18));
+}
+
+/* Ensure the card itself lifts and shows the stronger orange glow + border on hover
+   to match .video-item and .feature-box behavior */
+.service-card:hover,
+.service-card:active {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 12px 35px rgba(255,107,53,0.30);
+    border-color: var(--color-orange);
+}
+
+/* Make sure default outline/border is visible even if other rules try to remove it */
+.service-card {
+    border: 1px solid rgba(255,255,255,0.06) !important;
+}
+
+/* Keep focus visual parity with videos/features */
+.service-card:focus-within,
+.service-card:focus {
+    box-shadow: 0 12px 30px rgba(255,107,53,0.10), 0 0 30px rgba(255,107,53,0.14);
+    outline: 3px solid rgba(255,107,53,0.08);
+    outline-offset: 6px;
+    border-color: var(--color-orange);
+}
+
+/* Keyboard accessibility: show glow when focused via keyboard */
+.service-card:focus-within,
+.service-card:focus {
+    box-shadow: 0 12px 30px rgba(255,107,53,0.10), 0 0 30px rgba(255,107,53,0.14);
+    outline: 3px solid rgba(255,107,53,0.08);
+    outline-offset: 6px;
 }
 
 /* Individual session background images */
@@ -832,12 +1067,30 @@ body { background: #000; color: var(--color-white); }
     background: none !important;
 }
 
+/* Ensure service cards remain opaque — override any per-session resets */
+.service-card,
+.service-card.session-121,
+.service-card.session-coached,
+.service-card.session-group,
+.service-card.session-team,
+.service-card.session-scout {
+    background: #0b0b0b !important;
+}
+
 .service-title {
     font-size: 1.6rem;
     font-weight: 800;
     margin-bottom: 18px;
     color: var(--color-orange); /* changed to orange */
     letter-spacing: 1px;
+}
+
+/* Responsive, clamp-based sizing as a graceful CSS fallback
+   JS will further shrink text when needed to avoid overflow. */
+.service-title {
+    font-size: clamp(1.25rem, 2.4vw, 1.6rem);
+    line-height: 1.18;
+    word-break: break-word;
 }
 
 /* Carousel layout: center the single visible card and keep controls/dots aligned */
@@ -882,6 +1135,13 @@ body { background: #000; color: var(--color-white); }
     line-height: 1.7;
     font-weight: 700;
         flex-grow: 1; /* Allow description to expand while keeping schedule at bottom */
+}
+
+/* Slightly more flexible text sizing to help long descriptions fit before JS runs */
+.service-text {
+    font-size: clamp(0.9rem, 1.6vw, 1rem);
+    line-height: 1.55;
+    word-break: break-word;
 }
 
 .service-schedule {
@@ -1578,6 +1838,21 @@ body { background: #000; color: var(--color-white); }
         padding: 16px 24px;
         font-size: 1rem;
         min-width: auto;
+    }
+
+    /* Mobile tweaks: reduce service card size on small screens (iPhone) */
+    .service-item {
+        width: 92%;
+        max-width: 360px;
+        margin: 0 auto;
+    }
+    .service-item .service-card {
+        min-height: 280px; /* smaller baseline for mobile */
+        padding: 20px; /* reduce padding to fit content */
+    }
+    .service-item .service-title {
+        font-size: 1.25rem;
+        margin-bottom: 12px;
     }
 }
 
