@@ -24,6 +24,11 @@
     --transition-smooth: all 0.3s ease;
 }
 
+/* Ensure static-site top logo appears above any video overlays */
+.site-top-logo { position: relative; z-index: 1001; }
+.video-play-overlay { z-index: 10; }
+
+
 /* Reset and Base Styles */
 * {
     margin: 0;

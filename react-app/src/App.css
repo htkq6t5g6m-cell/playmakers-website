@@ -329,7 +329,7 @@ body { background: #000; color: var(--color-white); }
 
 .site-top-logo {
     position: relative;
-    z-index: 3;
+    z-index: 1001; /* ensure logo sits above any video overlays */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1344,6 +1344,7 @@ body { background: #000; color: var(--color-white); }
     background: rgba(0, 0, 0, 0.3);
     transition: var(--transition-smooth);
     pointer-events: none;
+    z-index: 10; /* keep overlay below high-level UI like the top logo */
 }
 
 .video-wrapper:hover .video-play-overlay {
