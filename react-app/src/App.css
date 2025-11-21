@@ -1490,11 +1490,6 @@ body { background: #000; color: var(--color-white); }
     margin-bottom: 10px;
 }
 
-.footer-contact {
-    font-size: 0.9rem;
-    color: var(--color-grey-medium);
-}
-
 /* ===========================
    RESPONSIVE DESIGN
    =========================== */

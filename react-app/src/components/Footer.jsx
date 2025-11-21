@@ -8,9 +8,6 @@ const Footer = () => {
         <p className="footer-text">
           © 2025 PLAYMAKERS - Cheshire Football Coaching. All rights reserved.
         </p>
-        <p className="footer-contact">
-          📞 {contactInfo.phoneFormatted} | 📱 Instagram: {contactInfo.instagramHandle}
-        </p>
       </div>
     </footer>
   );
