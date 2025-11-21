@@ -31,3 +31,7 @@ coverage/
 *.cache
 # Local Netlify folder
 .netlify
+
+# Ignore large local backups and export zips
+playmakers-website.zip
+backups/*.zip
