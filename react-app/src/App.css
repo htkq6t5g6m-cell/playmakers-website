@@ -962,6 +962,29 @@ body { background: #000; color: var(--color-white); }
     border: none;
 }
 
+/* Add orange glow on hover/focus for video thumbnails to match feature images */
+.video-wrapper,
+.video-item img,
+.video-item video,
+.video-wrapper iframe {
+    transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
+}
+
+.video-item:hover .video-wrapper,
+.video-wrapper:hover {
+    transform: scale(1.02);
+    box-shadow: 0 18px 40px rgba(255,107,53,0.12), 0 0 40px rgba(255,107,53,0.18);
+    filter: drop-shadow(0 6px 20px rgba(255,107,53,0.18));
+}
+
+/* keyboard accessibility: focus styles for video wrappers */
+.video-wrapper:focus-within,
+.video-wrapper:focus {
+    box-shadow: 0 12px 30px rgba(255,107,53,0.10), 0 0 30px rgba(255,107,53,0.14);
+    outline: 3px solid rgba(255,107,53,0.08);
+    outline-offset: 6px;
+}
+
 .video-wrapper video {
     object-fit: cover;
 }
