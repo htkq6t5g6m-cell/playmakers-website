@@ -1197,6 +1197,18 @@ body { background: #000; color: var(--color-white); }
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Make all video cards equal height inside the grid and use a 16:9 wrapper */
+.videos-grid {
+    grid-auto-rows: 1fr; /* ensure each grid cell gets the same height */
+    align-items: stretch;
+}
+
+.video-item {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
 .video-item:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 35px rgba(255, 107, 53, 0.3);
@@ -1204,21 +1216,20 @@ body { background: #000; color: var(--color-white); }
 }
 
 .video-wrapper {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
-    height: 0;
+    width: 100%;
+    aspect-ratio: 16 / 9; /* modern browsers will preserve a consistent 16:9 box */
     overflow: hidden;
     background-color: var(--color-black);
+    display: block;
 }
 
 .video-wrapper iframe,
 .video-wrapper video {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     border: none;
+    display: block;
+    object-fit: cover;
 }
 
 /* Add orange glow on hover/focus for video thumbnails to match feature images */
