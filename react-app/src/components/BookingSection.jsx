@@ -33,6 +33,7 @@ const BookingSection = () => {
     const phone = form.get('phone')?.trim();
     const age = Number(form.get('age'));
     const service = form.get('service');
+    const childAbility = form.get('childAbility');
 
     if (!name) e.parentName = 'Please enter parent or guardian name.';
     if (!phone) e.phone = 'Please enter a phone number.';
@@ -40,6 +41,7 @@ const BookingSection = () => {
     if (!age && age !== 0) e.age = 'Please enter your child\'s age.';
     else if (isNaN(age) || age < 4 || age > 18) e.age = 'Age must be a number between 4 and 18.';
     if (!service) e.service = 'Please choose a service preference.';
+    if (!childAbility) e.childAbility = 'Please select your child\'s ability.';
 
     return e;
   }
@@ -72,7 +74,7 @@ const BookingSection = () => {
     <section className="booking-section" id="book">
       <div className="container">
         <h2 className="section-heading text-center">Book a Session</h2>
-        <p className="section-subtitle text-center">Tell us a few details and Jack will be in touch to confirm availability. We respect your privacy and won't share details with third parties.</p>
+        <p className="section-subtitle text-center">Tell us a few details and We will be in touch to confirm availability. We respect your privacy and won't share details with third parties.</p>
 
         <form
           name="booking"
@@ -93,13 +95,13 @@ const BookingSection = () => {
 
           <div className="form-grid">
             <div className="form-group">
-              <label htmlFor="parentName">Parent / Guardian Name</label>
+              <label htmlFor="parentName">Parent Name</label>
               <input id="parentName" name="parentName" type="text" required />
               {errors.parentName && <div className="form-error">{errors.parentName}</div>}
             </div>
 
             <div className="form-group">
-              <label htmlFor="phone">Phone Number</label>
+              <label htmlFor="phone">Telephone Number</label>
               <input id="phone" name="phone" type="tel" required placeholder="e.g. +44 7482 768570" />
               {errors.phone && <div className="form-error">{errors.phone}</div>}
             </div>
@@ -111,16 +113,32 @@ const BookingSection = () => {
             </div>
 
             <div className="form-group">
-              <label htmlFor="service">Preference of Service</label>
+              <label htmlFor="childAbility">Child's Ability (Low, Medium, High)</label>
+              <select id="childAbility" name="childAbility" required defaultValue="">
+                <option value="" disabled>Choose ability...</option>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+              </select>
+              {errors.childAbility && <div className="form-error">{errors.childAbility}</div>}
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="service">Service</label>
               <select id="service" name="service" required defaultValue="">
                 <option value="" disabled>Choose a service...</option>
-                <option value="121 coaching">121 coaching</option>
-                <option value="coached matches">coached matches</option>
-                <option value="group sessions">group sessions</option>
-                <option value="team training">team training</option>
-                <option value="scouting report">scouting report</option>
+                <option value="1-to-1 coaching">1-To-1 Coaching</option>
+                <option value="coached matches">Coached Matches</option>
+                <option value="group sessions">Group Sessions</option>
+                <option value="team training">Team Training</option>
+                <option value="scouting report">Scouting Report</option>
               </select>
               {errors.service && <div className="form-error">{errors.service}</div>}
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="additionalComments">Additional Comments</label>
+              <textarea id="additionalComments" name="additionalComments" rows={4} placeholder="Any additional information (injuries, preferences, etc.)" />
             </div>
           </div>
 
@@ -132,7 +150,7 @@ const BookingSection = () => {
             <p className="form-help" aria-live="polite">
               {isSubmitting
                 ? 'Submitting your request — please keep the tab open.'
-                : 'After submission Jack will receive your details and will contact you within 24–48 hours to confirm availability.'}
+                : 'After submission We will be in touch to confirm availability.'}
             </p>
           </div>
         </form>

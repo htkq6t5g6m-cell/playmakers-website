@@ -1039,7 +1039,7 @@ body { background: #000; color: var(--color-white); }
 
 /* Individual session background images */
 .session-121 {
-    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("/images/page-images/121.jpg") center/cover no-repeat;
+    /* removed: per-session image for 121 (handled globally by dark card styles) */
 }
 
 .session-coached {
@@ -1059,7 +1059,6 @@ body { background: #000; color: var(--color-white); }
 }
 
 /* Remove per-session imagery; keep consistent dark card */
-.session-121,
 .session-coached,
 .session-group,
 .session-team,
@@ -1069,7 +1068,6 @@ body { background: #000; color: var(--color-white); }
 
 /* Ensure service cards remain opaque — override any per-session resets */
 .service-card,
-.service-card.session-121,
 .service-card.session-coached,
 .service-card.session-group,
 .service-card.session-team,
@@ -1171,7 +1169,6 @@ body { background: #000; color: var(--color-white); }
     font-weight: 600;
 }
 /* Remove per-session imagery */
-.session-121,
 .session-coached,
 .session-group,
 .session-team,
@@ -1186,8 +1183,10 @@ body { background: #000; color: var(--color-white); }
 
 .videos-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 32px;
+    justify-content: center;
+    justify-items: center;
 }
 
 .video-item {

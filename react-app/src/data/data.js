@@ -124,7 +124,7 @@ export const sessions = [
   {
     id: 4,
     title: 'Team Training',
-    description: 'Are you a grassroots club or academy looking to level up your training for your kids?',
+    description: 'We are able to come out and deliver training sessions for your team. This is great to mix up the team\'s training schedule, or if you want to level up the training for the kids.',
     schedule: {
       heading: 'Our Services',
       times: [
@@ -160,38 +160,7 @@ export const videos = [
     title: 'Group Session Highlights',
     description: 'High-energy group training with professional coaches'
   },
-  {
-    id: 3,
-    type: 'local',
-    src: 'videos/coached.mov',
-    poster: '/images/page-images/coached.jpg',
-    title: 'Coached Match Action',
-    description: 'Real match scenarios with live feedback and analysis'
-  },
-  {
-    id: 4,
-    type: 'local',
-    src: 'videos/mental.mp4',
-    poster: 'https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=800&h=450&fit=crop',
-    title: 'Mental Development',
-    description: 'Building confidence, resilience and mental strength'
-  },
-  {
-    id: 5,
-    type: 'local',
-    src: 'videos/skills.mp4',
-    poster: 'https://images.unsplash.com/photo-1606925797300-0b35e9d1794e?w=800&h=450&fit=crop',
-    title: 'Skills Development',
-    description: 'Advanced technical drills and ball manipulation'
-  },
-  {
-    id: 6,
-    type: 'local',
-    src: 'videos/shooting.mp4',
-    poster: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&h=450&fit=crop',
-    title: 'Shooting',
-    description: 'Professional shooting techniques and drills'
-  }
+  // Only 1-to-1 and Group Session videos retained per request
 ];
 
 // Instagram Posts Data
@@ -231,37 +200,100 @@ export const contactInfo = {
 export const testimonials = [
   {
     id: 1,
-    name: 'Sarah L.',
-    label: 'Parent of U9 Player',
-    text: 'My son has grown in confidence and technique week after week. The coaching is detailed yet really enjoyable. He looks forward to every session.',
-    avatar: null // placeholder; swap with image path if desired
+    name: 'Arthur Williams',
+    label: 'Everton U10 (Melissa)',
+    text: "The coaches at Playmakers are fantastic, very engaging and positive. They always use a balanced approach of support, encouragement, and set realistic expectations to push the kids to ensure they reach their full potential. Arthur has never had a 1-1 session prior to starting with Playmakers but has thoroughly enjoyed the sessions up to now — working on his left foot is definitely showing progress! The group sessions are fab! Different ages and abilities all mixed to challenge one another. Arth has especially enjoyed these sessions! Overall I definitely recommend Playmakers!! If you want your kid to develop and build their confidence! ❤️⚽️",
+    avatar: null
   },
   {
     id: 2,
-    name: 'David R.',
-    label: 'Parent of U10 Player',
-    text: 'Professional, encouraging and tailored. The coaches understand exactly what each player needs and explain things clearly. Huge improvement in decision-making.',
+    name: 'Charlie',
+    label: 'U7 CQ Nomads (Josh)',
+    text: "My son started with Playmakers 6 months ago when he was only 5 attending 2 sessions a week with a number of different coaches who have all been fantastic!! Henry is his main 1-2-1 coach and we owe him so much for the amount of knowledge he passed on! Charlie’s footwork and confidence has excelled massively thanks to Playmakers and the sessions they provide! The kids are more than just a number — the coaches really care and put in so much effort to improve the players! We are so unbelievably grateful for everything they have done for Charlie and the player they have made him! We can’t wait to see what another 6 months brings and the opportunities Playmakers create with their hard work and dedication to the kids!",
     avatar: null
   },
   {
     id: 3,
-    name: 'Emma T.',
-    label: 'Parent of U12 Player',
-    text: 'The sessions are high quality and structured like academy training. My daughter comes away motivated with clear things to work on at home.',
+    name: 'Paddy',
+    label: 'Flint U13 (Felicity)',
+    text: "Hey Jack — it’s Paddy's mum. I just wanted to say a big thank you to Coach Isaac for the 121s and ball mastery sessions so far. We have seen a massive difference since he has gone back to preseason training with Flint and we have had a lot of parent comments too about his performance. He is loving it and he is improving week on week. Thanks — Felicity",
     avatar: null
   },
   {
     id: 4,
-    name: 'James P.',
-    label: 'Parent of U8 Player',
-    text: 'Outstanding technical focus delivered in a really positive environment. We have seen noticeable improvement in ball control and awareness.',
+    name: 'Coleman',
+    label: 'Vauxhall U15',
+    text: "Sessions are going really well. Owen’s sessions are quick and dynamic and he gets into them. Jake is very technical and demanding. Isaac is very charismatic in pushing them and getting a lot out of them.",
     avatar: null
   },
   {
     id: 5,
-    name: 'Laura M.',
-    label: 'Parent of U11 Player',
-    text: 'The personalised feedback and genuine care shown by the coaches sets this apart. My son is more composed and purposeful in matches now.',
+    name: 'Reagan',
+    label: 'U10 Everton talent programme',
+    text: "Since joining Playmakers Reagan’s game has changed completely — he’s much more confident when driving with the ball and it’s great to see him using different skills in his games. Jack’s attention to detail is brilliant and he is a great coach and mentor for Reagan in his development. Each session is really tailored to improve Reagan’s game. All the other coaches are brilliant and really get the best out of Reagan and he enjoys the banter with the coaches.",
+    avatar: null
+  },
+  {
+    id: 6,
+    name: 'William',
+    label: 'U12 Borras Park Albion (Katy)',
+    text: "Hi — William really enjoyed it yesterday. He finds the sessions really helpful as each one is focussed on something different and a particular skill that he wants to work on, e.g. yesterday was improving his left foot. He finds Ellie really approachable and the sessions are pitched at a good level — he feels challenged with things he can work on at home between the sessions.",
+    avatar: null
+  },
+  {
+    id: 7,
+    name: 'Tommy',
+    label: 'U8 Wrexham Trialist',
+    text: "Tommy really enjoyed it and is looking forward to Tuesday. He tried hard to use some of the things she was talking about at his Wrexham training on Wednesday (outside of foot and left foot). Ellie was lovely, and we were really pleased with the session — nothing to do differently, just keep working on his speed of decisions, touch and go etc.",
+    avatar: null
+  },
+  {
+    id: 8,
+    name: 'Alex',
+    label: 'U12',
+    text: "Hi Jack — he enjoyed it. Henry worked him hard (even with sore legs from box jumps last night) and he balanced the intensity to take into account he was tired. Alex really looks up to him so they have a good rapport — the right mix of fun and hard work and competitiveness which Alex needs at the moment.",
+    avatar: null
+  },
+  {
+    id: 9,
+    name: 'Ronnie',
+    label: '',
+    text: "I’ve been really impressed with Jake — very knowledgeable and confident and a really nice lad, clear and vocal with his instructions. Ron loves the sessions, couldn’t speak highly enough of him to be honest.",
+    avatar: null
+  },
+  {
+    id: 10,
+    name: 'Saxon',
+    label: 'U11 Witton Albion',
+    text: "It was great! All positive for us, Harry is doing an amazing job on Saxon. He's absolutely loving it — he goes in with a smile on his face and comes away with a smile on his face. We're mega happy.",
+    avatar: null
+  },
+  {
+    id: 11,
+    name: 'Elliott Chappell',
+    label: '',
+    text: "Hi Jack — Elliott really enjoyed it thanks. Jake was brilliant with him, very positive and encouraging. Elliott responds well to him and had a smile on his face the whole time. Jake asked what Elliott would like to work on at the start so that was great.",
+    avatar: null
+  },
+  {
+    id: 12,
+    name: 'Dylan',
+    label: '(Isaac coach)',
+    text: "I just wanted to message after Dylan having his 1-2-1 with Isaac — instantly impressed with Isaac and how quickly he made Dylan feel relaxed. Normally Dylan gets very anxious going to new things but we could see from the start how much he was enjoying it and he even said when we finished how much he loved it!",
+    avatar: null
+  },
+  {
+    id: 13,
+    name: 'Rory',
+    label: '',
+    text: "Rory is loving his sessions with Jake — Jake’s a breath of fresh air. He’s loud, outgoing, confident, encouraging, friendly and positive. All of which is just perfect for Rory in building his confidence and fitness.",
+    avatar: null
+  },
+  {
+    id: 14,
+    name: 'Romeo',
+    label: 'Chester U11',
+    text: "Playmakers Football Academy is an excellent place for kids to learn, grow, and enjoy football. The atmosphere is always positive and encouraging, making it an environment where players can truly progress and improve. A special mention has to go to Coach Jack. His patience is truly impressive — he works brilliantly with kids of all different abilities, adapting his coaching style so that every child feels included and supported. The combination of Jack’s thoughtful coaching and the welcoming, enjoyable atmosphere at Playmakers creates the perfect place for young players to develop their game while having fun. Highly recommended.",
     avatar: null
   }
 ];

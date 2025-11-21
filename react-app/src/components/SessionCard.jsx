@@ -7,7 +7,7 @@ const SessionCard = ({ session }) => {
 
   const getCardClass = (id) => {
     const classes = {
-      1: 'service-card session-121',
+      1: 'service-card',
       2: 'service-card session-coached',
       3: 'service-card session-group',
       4: 'service-card session-team',

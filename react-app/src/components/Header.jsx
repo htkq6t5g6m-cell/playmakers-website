@@ -72,8 +72,8 @@ const Header = () => {
     { href: '#home', label: 'Home' },
     { href: '#about', label: 'About' },
     { href: '#coaches', label: 'Coaches' },
-    { href: '#sessions', label: 'Services' },
-    { href: '#reviews', label: 'Why Us' },
+    // services link removed
+    { href: '#what-we-do', label: 'What We Do' },
     { href: '#testimonials', label: 'Testimonials' },
     { href: '#book', label: 'Book Now' },
     { href: '#contact', label: 'Contact' }
