@@ -221,7 +221,7 @@ export const clubs = [
 export const contactInfo = {
   phone: '07482768570',
   phoneFormatted: '07482 768570',
-  whatsapp: 'https://wa.me/447482768570',
+  whatsapp: 'https://wa.me/447727105747',
   instagram: 'https://instagram.com/playmakers_football',
   instagramHandle: '@playmakers_football',
   facebook: 'https://m.facebook.com/playmakerscheshirefootballcoaching/?utm_source=ig&utm_medium=social&utm_content=link_in_bio'

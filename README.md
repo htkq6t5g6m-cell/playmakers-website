@@ -67,7 +67,7 @@ Upload all files (`index.html`, `styles.css`, `script.js`) to your web hosting s
 ## 📱 Contact Information
 
 - **Phone**: 07482 768570
-- **WhatsApp**: https://wa.me/447482768570
+- **WhatsApp**: https://wa.me/447727105747
 - **Instagram**: @playmakers_football
 
 ## ✨ Browser Support
