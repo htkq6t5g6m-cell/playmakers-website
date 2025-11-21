@@ -2,7 +2,7 @@
 export const coaches = [
   {
     id: 1,
-    name: 'Jack',
+    name: 'Coach Jack',
     role: 'Advanced Talent Coach | Ex-Everton FC',
     bio: 'A highly knowledgeable and experienced coach with a strong academy playing background at Accrington Stanley, Stoke City, and Manchester City. As an ex–Everton FC Advanced Talent Coach, he has developed a reputation for his ability to analyse and adjust technique, identify a player\'s specific needs, and design sessions that deliver clear, measurable improvement. Dedicated, supportive, and technically driven, he brings professional insight and a passion for helping players unlock their full potential.',
     image: '/images/coaches/jack.jpg',
@@ -10,7 +10,7 @@ export const coaches = [
   },
   {
     id: 2,
-    name: 'Henry',
+    name: 'Coach Henry',
     role: 'Defender | Chester FC Professional',
     bio: 'A technically strong and highly disciplined defender, now a professional at Chester FC, brings over a decade of elite academy experience to 1-to-1 coaching. Having spent 10 years developing at Everton\'s Academy, he has been immersed in top-level training environments. Known for his game intelligence, calmness in possession, and defensive leadership, he translates his professional experience into tailored, engaging, and development-focused coaching sessions.',
     image: '/images/coaches/henry.jpg',
@@ -18,7 +18,7 @@ export const coaches = [
   },
   {
     id: 3,
-    name: 'Ellie',
+    name: 'Coach Ellie',
     role: 'Women\'s Professional | Everton FC',
     bio: 'A talented and driven women\'s professional footballer at Everton, known for her technical quality, athleticism, and consistency at the highest level. Having developed through the prestigious Liverpool Academy, she brings a calm, supportive, and highly engaging approach to coaching. Her sessions focus on improving technique, confidence, and decision-making, while showing players what it takes to reach the elite level.',
     image: '/images/coaches/ellie.jpg',
@@ -26,7 +26,7 @@ export const coaches = [
   },
   {
     id: 4,
-    name: 'Harry',
+    name: 'Coach Harry',
     role: 'Right Back | Chester FC Scholar',
     bio: 'A dynamic and attack-minded right back, currently a scholar at Chester FC, with first-team appearances already to his name. He brings a decade of top-level youth experience from 10 years in Everton\'s Academy. Known for his high energy up and down the flank, reliable 1v1 defending, and composure in possession, he delivers high-quality 1-to-1 coaching shaped by both academy and senior football experience.',
     image: '/images/coaches/harry.jpg',
@@ -34,7 +34,7 @@ export const coaches = [
   },
   {
     id: 5,
-    name: 'Isaac',
+    name: 'Coach Isaac',
     role: 'Striker | Chester FC Scholar',
     bio: 'An explosive and clinical striker currently a scholar at Chester FC, known for his pace, sharp finishing, and natural attacking instinct. Having spent most of his childhood developing at Warrington Rylands FC, he is loved by younger players for his positivity, energy, and joyful personality. His sessions combine dynamic attacking drills with confidence-building challenges, helping players improve their speed, movement, and finishing.',
     image: '/images/coaches/isaac.jpg',
@@ -42,7 +42,7 @@ export const coaches = [
   },
   {
     id: 6,
-    name: 'Jake',
+    name: 'Coach Jake',
     role: 'Central Midfielder | Chester FC Scholar',
     bio: 'A composed and hard-working central midfielder currently a scholar at Chester FC, recognised for his leadership, intelligence on the ball, and ability to control the tempo of the game. Growing up and developing at Warrington Rylands FC, he is a natural captain who brings calmness, clarity, and encouragement to every session. His 1-to-1 coaching focuses on ball mastery, decision-making, awareness, and the fundamentals of intelligent midfield play.',
     image: '/images/coaches/jake.jpg',
@@ -50,7 +50,7 @@ export const coaches = [
   },
   {
     id: 7,
-    name: 'Kian',
+    name: 'Coach Kian',
     role: 'Right Back | Chester FC Scholar',
     bio: 'A dependable and intelligent right back, currently a scholar at Chester FC, known for his defensive sharpness and confidence in possession. His journey through two elite youth environments — Manchester United and Wrexham — has shaped his technical quality, discipline, and understanding of high-level football. He specialises in developing defensive fundamentals, 1v1 ability, awareness, and effective attacking play from wide areas.',
     image: '/images/coaches/kian.jpg',
