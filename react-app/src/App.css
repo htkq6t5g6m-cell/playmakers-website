@@ -389,6 +389,24 @@ body { background: #000; color: var(--color-white); }
     }
 }
 
+/* Ensure all common section headings/subtitles and centered CTAs stay centered on small screens */
+@media (max-width: 480px) {
+    .section-heading,
+    .section-heading.text-center,
+    .section-subtitle,
+    .section-subtitle.text-center,
+    .cta-text.text-center,
+    .about .section-heading,
+    .video-gallery .section-heading,
+    .booking-section .section-heading,
+    .contact-cta .section-heading {
+        text-align: center !important;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    /* Ensure subtitle width doesn't overflow and remains centered */
+    .section-subtitle { max-width: 92vw; margin-left: auto; margin-right: auto; }
+}
 /* ===========================
    SCROLL PROGRESS (RIGHT SIDE)
    =========================== */
@@ -703,7 +721,12 @@ body { background: #000; color: var(--color-white); }
     font-size: 1.25rem;
     font-weight: 700;
     margin-bottom: 12px;
-    color: var(--color-white);
+    color: var(--color-orange);
+}
+
+/* Make section headings use the brand orange by default */
+.section-heading {
+    color: var(--color-orange);
 }
 
 .feature-text {
@@ -817,45 +840,30 @@ body { background: #000; color: var(--color-white); }
     width: 100%;
 }
 
+/* Ensure testimonial controls/dots are centered when reused in the services section */
+.services .testimonial-controls {
+    position: static;
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    pointer-events: auto;
+}
+.services .testimonial-controls .btn-header {
+    min-width: 56px;
+    font-size: 1.2rem;
+    padding: 8px 16px;
+}
+.services .testimonial-dots {
+    margin-top: 12px;
+}
+
 .services-slide {
     display: flex;
     justify-content: center;
     width: 100%;
 }
 
-/* Place prev/next buttons to the left and right, vertically centered over the slide */
-.services-controls {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    transform: translateY(-50%);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    pointer-events: none; /* allow buttons only where intended */
-    padding: 0 12px;
-    z-index: 30;
-}
-
-.services-controls .btn {
-    pointer-events: all;
-    background: rgba(0,0,0,0.6);
-    color: var(--color-white);
-    border: 1px solid rgba(255,255,255,0.08);
-    width: 46px;
-    height: 46px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.services-dots {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-}
 
 .service-text {
     font-size: 1rem;
@@ -1254,50 +1262,6 @@ body { background: #000; color: var(--color-white); }
         justify-content: center; 
     }
 
-    .services-controls {
-        position: absolute;
-        top: 50%;
-        left: 0;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        transform: translateY(-50%);
-        pointer-events: none;
-    }
-    .services-controls button { pointer-events: auto; }
-
-    .services-prev, .services-next {
-        width: 54px;
-        height: 54px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 2rem;
-        border-radius: 50%;
-        background: rgba(255,255,255,0.08);
-        backdrop-filter: blur(4px);
-        border: 1px solid rgba(255,255,255,0.15);
-        transition: var(--transition-smooth);
-    }
-    .services-prev:hover, .services-next:hover { background: rgba(255,255,255,0.18); }
-
-    .services-dots {
-        display: flex;
-        gap: 10px;
-        justify-content: center;
-        margin-top: 32px;
-    }
-    .services-dots .dot {
-        width: 14px;
-        height: 14px;
-        border-radius: 50%;
-        background: rgba(255,255,255,0.25);
-        border: none;
-        cursor: pointer;
-        transition: background 180ms ease, transform 180ms ease;
-    }
-    .services-dots .dot.active { background: var(--color-orange); transform: scale(1.25); }
-    .services-dots .dot:hover { background: rgba(255,255,255,0.45); }
 
     /* Ensure service-card looks good standalone in carousel */
     .services-carousel .service-card {
@@ -1310,12 +1274,7 @@ body { background: #000; color: var(--color-white); }
             padding: clamp(16px,6vw,32px) clamp(14px,5vw,28px);
             border-radius: 22px;
         }
-        .services-prev, .services-next {
-            width: 46px;
-            height: 46px;
-            font-size: 1.75rem;
-        }
-        .services-dots .dot { width: 12px; height: 12px; }
+        
     }
     
     .services-grid {
@@ -1542,6 +1501,15 @@ body { background: #000; color: var(--color-white); }
     
     .scroll-indicator {
         bottom: 20px;
+    }
+}
+
+/* Ensure the About section heading is centered on very small screens (e.g. iPhone) */
+@media (max-width: 480px) {
+    .about .section-heading {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
