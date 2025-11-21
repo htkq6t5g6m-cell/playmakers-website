@@ -67,11 +67,11 @@ const SessionsSection = () => {
           <div className="services-slide">
             <SessionCard key={current.id} session={current} />
           </div>
-          <div className="services-controls">
-            <button type="button" className="btn btn-header services-prev" onClick={() => go('prev')} aria-label="Previous service">‹</button>
-            <button type="button" className="btn btn-header services-next" onClick={() => go('next')} aria-label="Next service">›</button>
+          <div className="testimonial-controls">
+            <button type="button" className="btn btn-header testimonial-prev" onClick={() => go('prev')} aria-label="Previous service">‹</button>
+            <button type="button" className="btn btn-header testimonial-next" onClick={() => go('next')} aria-label="Next service">›</button>
           </div>
-          <div className="services-dots" role="tablist">
+          <div className="testimonial-dots" role="tablist">
             {sessions.map((_, i) => (
               <button
                 key={i}
