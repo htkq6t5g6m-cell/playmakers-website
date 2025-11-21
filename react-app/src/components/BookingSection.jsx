@@ -139,10 +139,7 @@ const BookingSection = () => {
 
         <div className="booking-footnote">
           <small>
-            By submitting you agree to our privacy policy. For SMS alerts you can later integrate
-            Netlify → Zapier → Twilio (example: create a Zap triggered by a new Netlify form submission,
-            then send a Twilio SMS to Jack's phone). Netlify also supports native integrations in
-            the dashboard under Forms → Notifications.
+            By submitting you agree to our privacy policy.
           </small>
         </div>
       </div>
