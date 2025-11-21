@@ -50,11 +50,7 @@ const VideoCard = ({ video }) => {
               <source src={video.src} type="video/mp4" />
               Your browser doesn't support video playback.
             </video>
-            {!isPlaying && (
-              <div className="video-play-overlay">
-                <div className="play-button">▶</div>
-              </div>
-            )}
+            {/* Removed visual play overlay to avoid accidental overlap with hero */}
           </>
         )}
       </div>

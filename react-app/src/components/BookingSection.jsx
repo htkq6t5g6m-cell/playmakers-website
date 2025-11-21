@@ -150,7 +150,7 @@ const BookingSection = () => {
             <p className="form-help" aria-live="polite">
               {isSubmitting
                 ? 'Submitting your request — please keep the tab open.'
-                : 'After submission We will be in touch to confirm availability.'}
+                : 'After submission we will be in touch to confirm availability.'}
             </p>
           </div>
         </form>

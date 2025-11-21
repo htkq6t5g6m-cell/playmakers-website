@@ -677,6 +677,21 @@ ul {
     .video-gallery .section-heading { font-size: 2rem; }
 }
 
+/* Static site: hide the top logo on mobile and reduce hero spacing
+   so the hero title ("Our coaches play football" / main heading)
+   sits directly under the header on small devices. */
+@media (max-width: 768px) {
+    .site-top-logo { display: none !important; }
+    .hero { padding-top: 20px; }
+    .hero .hero-content { padding-top: 12px; }
+}
+
+@media (max-width: 480px) {
+    .site-top-logo { display: none !important; }
+    .hero { padding-top: 12px; }
+    .hero .hero-content { padding-top: 8px; }
+}
+
 .videos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));

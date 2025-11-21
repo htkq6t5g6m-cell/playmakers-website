@@ -21,8 +21,8 @@ const WhyChooseUsSection = () => {
           </div>
 
           <div className="what-we-do-item">
-            <h3 className="service-title">Team Training</h3>
-            <p className="service-text">Details available on request.</p>
+            <h3 className="service-title">Team training</h3>
+            <p className="service-text">We are able to come out and deliver training sessions for your team. This is great to mix up the teams training schedule, or if you want to level up the training for the kids.</p>
           </div>
 
           <div className="what-we-do-item">

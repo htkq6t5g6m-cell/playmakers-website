@@ -5,7 +5,6 @@ import ClubBar from './components/ClubBar';
 import AboutSection from './components/AboutSection';
 import CoachesSection from './components/CoachesSection';
 import WhyChooseUsSection from './components/WhyChooseUsSection';
-import SessionsSection from './components/SessionsSection';
 import VideoGallery from './components/VideoGallery';
 import TestimonialsSection from './components/TestimonialsSection';
 import BookingSection from './components/BookingSection';
@@ -27,7 +26,6 @@ function App() {
         <AboutSection />
         <CoachesSection />
         <WhyChooseUsSection />
-        <SessionsSection />
         <VideoGallery />
         <TestimonialsSection />
         <BookingSection />

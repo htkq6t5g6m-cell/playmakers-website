@@ -1870,6 +1870,20 @@ body { background: #000; color: var(--color-white); }
     }
 }
 
+/* Mobile: hide the large top logo and pull the hero up under the header */
+@media (max-width: 768px) {
+    .site-top-logo { display: none !important; }
+    /* Reduce hero vertical padding so the hero title sits directly under header */
+    .hero { padding-top: clamp(12px, 6vw, 28px); }
+    .hero-content { padding-top: clamp(12px, 6vw, 28px) !important; }
+}
+
+@media (max-width: 480px) {
+    .site-top-logo { display: none !important; }
+    .hero { padding-top: clamp(10px, 6vw, 22px); }
+    .hero-content { padding-top: clamp(10px, 6vw, 22px) !important; }
+}
+
 /* Ensure the About section heading is centered on very small screens (e.g. iPhone) */
 @media (max-width: 480px) {
     .about .section-heading {
