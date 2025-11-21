@@ -155,7 +155,7 @@ export const videos = [
   {
     id: 2,
     type: 'local',
-    src: 'videos/group.mov',
+    src: 'videos/groupcoach.mov',
     poster: '/images/page-images/group.jpg',
     title: 'Group Session Highlights',
     description: 'High-energy group training with professional coaches'
