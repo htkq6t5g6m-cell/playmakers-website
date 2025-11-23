@@ -8,14 +8,15 @@ const AboutSection = () => {
           <div className="about-text">
             <h2 className="section-heading">About Playmakers</h2>
             <p>
-              Playmakers delivers elite football coaching led exclusively by current and 
-              former professional players. Our mission is to help young players develop 
-              technique, confidence and understanding through modern methods used in pro 
-              academies.
+              Football is at the heart of what we do. Young footballers are who we understand.
             </p>
+
             <p>
-              Based in Cheshire, we support players aged 5–18 across all abilities, with 
-              personalised, high-energy sessions shaped by real football experience.
+              Based in Cheshire, we deliver elite level football coaching exclusively by former or current football players.
+            </p>
+
+            <p>
+              Our mission is to pass on what we’ve learned as players and coaches to the younger generation.
             </p>
           </div>
           <div className="about-image">

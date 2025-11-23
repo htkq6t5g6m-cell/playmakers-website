@@ -21,15 +21,17 @@ function App() {
       <BackToTop />
       <Header />
       <main>
-        <HeroSection />
-        <ClubBar />
-        <AboutSection />
-        <CoachesSection />
-        <WhyChooseUsSection />
-        <VideoGallery />
-        <TestimonialsSection />
-        <BookingSection />
-        <ContactSection />
+        <div className="container">
+          <HeroSection />
+          <ClubBar />
+          <AboutSection />
+          <CoachesSection />
+          <WhyChooseUsSection />
+          <VideoGallery />
+          <TestimonialsSection />
+          <BookingSection />
+          <ContactSection />
+        </div>
       </main>
       <Footer />
     </div>

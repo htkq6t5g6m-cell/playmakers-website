@@ -9,30 +9,31 @@ const WhyChooseUsSection = () => {
 
         <div className="what-we-do-grid">
           <div className="what-we-do-item">
-            <h3 className="service-title">1-to-1 and small group coaching</h3>
-            <p className="service-text">Personalised sessions to identify strengths and weaknesses and improve them both.</p>
+            <h3 className="service-title">121 Coaching</h3>
           </div>
 
           <div className="what-we-do-item">
             <h3 className="service-title">Group Sessions</h3>
-            <p className="service-text">Coached matches, ball mastery and 1v1 groups tailored to age and ability.</p>
-            <p className="service-text">Our Matches are 1 hour 6v6, facilitated by a coach to give in-game tips.</p>
-            <p className="service-text">1v1 groups focus on ball mastery, and facilitate 1v1 battles to improve ball control.</p>
           </div>
 
           <div className="what-we-do-item">
-            <h3 className="service-title">Team training</h3>
-            <p className="service-text">We are able to come out and deliver training sessions for your team. This is great to mix up the teams training schedule, or if you want to level up the training for the kids.</p>
+            <h3 className="service-title">Coached Matches</h3>
+          </div>
+
+          <div className="what-we-do-item">
+            <h3 className="service-title">Mindset and Confidence</h3>
+          </div>
+
+          <div className="what-we-do-item">
+            <h3 className="service-title">Team Training</h3>
           </div>
 
           <div className="what-we-do-item">
             <h3 className="service-title">Scouting Reports</h3>
-            <p className="service-text">Our coaches will come out and watch your son or daughter play. We will then deliver a tailored report on strengths and areas for improvement, and advice.</p>
           </div>
 
           <div className="what-we-do-item">
-            <h3 className="service-title">Mindset and confidence training</h3>
-            <p className="service-text">Yoga for football, and professional talks to help young footballers.</p>
+            <h3 className="service-title">Fixtures vs Academies</h3>
           </div>
         </div>
       </div>

@@ -8,7 +8,7 @@ const ClubBar = () => {
         <div className="hero-buttons club-cta">
           <a href="#book" className="btn btn-large hero-book-btn">Book a Session</a>
         </div>
-        <p className="club-tagline">coached by footballers, for footballers</p>
+        {/* tagline removed per request */}
         <div className="club-logos">
           {clubs.map((club, index) => (
             <div key={index} className="club-logo">
