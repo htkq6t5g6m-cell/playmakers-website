@@ -49,6 +49,11 @@
 html, body { height: 100%; }
 body { background: #000; color: var(--color-white); }
 
+/* Offset in-page anchor scrolling so fixed header doesn't cover section titles */
+section[id] {
+    scroll-margin-top: clamp(80px, 12vh, 140px);
+}
+
 /* ===========================
    HEADER / NAVIGATION
    =========================== */
@@ -625,7 +630,7 @@ body { background: #000; color: var(--color-white); }
     display: flex;
     align-items: center;
     gap: 30px;
-    animation: clubMarquee 22s linear infinite;
+    animation: clubMarquee 8s linear infinite;
 }
 
 .club-marquee:hover .club-marquee-track,
@@ -818,6 +823,7 @@ body { background: #000; color: var(--color-white); }
 /* Make 'What We Do' titles white to match request */
 .what-we-do .service-title {
     color: var(--color-white) !important;
+    margin-bottom: 6px;
 }
 
 /* Responsive grid wrapper for the What We Do items */
@@ -826,6 +832,16 @@ body { background: #000; color: var(--color-white); }
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
+}
+
+@media (max-width: 640px) {
+    .what-we-do-grid {
+        gap: 0.85rem;
+    }
+
+    .what-we-do .service-title {
+        margin-bottom: 2px;
+    }
 }
 
 .features-grid {
