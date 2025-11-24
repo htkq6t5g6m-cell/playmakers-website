@@ -4,7 +4,11 @@ const CoachCard = ({ coach }) => {
   return (
     <div className="coach-card">
       <div className="coach-image">
-        <img src={coach.image} alt={coach.alt} />
+        <img
+          src={coach.image}
+          alt={coach.alt}
+          style={coach.imagePosition ? { objectPosition: coach.imagePosition } : undefined}
+        />
       </div>
       <div className="coach-info">
         <h3 className="coach-name">{coach.name}</h3>

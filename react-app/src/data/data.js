@@ -38,7 +38,8 @@ export const coaches = [
     role: 'Striker | Chester FC Scholar',
     bio: 'An explosive and clinical striker currently a scholar at Chester FC, known for his pace, sharp finishing, and natural attacking instinct. Having spent most of his childhood developing at Warrington Rylands FC, he is loved by younger players for his positivity, energy, and joyful personality. His sessions combine dynamic attacking drills with confidence-building challenges, helping players improve their speed, movement, and finishing.',
     image: '/images/coaches/isaac.jpg',
-    alt: 'Isaac - Striker'
+    alt: 'Isaac - Striker',
+    imagePosition: 'center 30%'
   },
   {
     id: 6,

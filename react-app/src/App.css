@@ -564,17 +564,63 @@ body { background: #000; color: var(--color-white); }
     margin-bottom: 18px;
 }
 
+.hero-buttons.club-cta {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+}
+
+.hero-buttons.club-cta .hero-book-btn {
+    width: auto;
+    max-width: none;
+    min-width: 230px;
+    margin: 0 auto;
+}
+
 /* Reduce initial gap before About when it directly follows the club bar */
 .club-bar + .about {
     padding-top: 48px; /* was 80px via var(--section-padding) */
 }
 
-.club-logos {
+.club-marquee {
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    max-width: 900px;
+    padding: 8px 0;
+}
+
+.club-marquee::before,
+.club-marquee::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 80px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.club-marquee::before {
+    left: 0;
+    background: linear-gradient(90deg, var(--color-black), transparent);
+}
+
+.club-marquee::after {
+    right: 0;
+    background: linear-gradient(270deg, var(--color-black), transparent);
+}
+
+.club-marquee-track {
     display: flex;
-    justify-content: space-around;
     align-items: center;
-    flex-wrap: wrap;
     gap: 30px;
+    animation: clubMarquee 22s linear infinite;
+}
+
+.club-marquee:hover .club-marquee-track,
+.club-marquee:focus-within .club-marquee-track {
+    animation-play-state: paused;
 }
 
 .club-logo {
@@ -584,6 +630,22 @@ body { background: #000; color: var(--color-white); }
     opacity: 0.6;
     text-transform: uppercase;
     letter-spacing: 1px;
+    flex: 0 0 auto;
+}
+
+@keyframes clubMarquee {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .club-marquee-track {
+        animation: none;
+    }
 }
 
 /* ===========================
@@ -1730,9 +1792,12 @@ body { background: #000; color: var(--color-white); }
 
         
     
-    .club-logos {
+    .club-marquee {
+        max-width: 100%;
+    }
+    
+    .club-marquee-track {
         gap: 20px;
-        justify-content: center;
     }
     
     .club-logo {
