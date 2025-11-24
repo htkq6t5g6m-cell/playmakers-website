@@ -28,5 +28,23 @@
       </script>
     </div>
     <script type="module" src="/src/main.jsx"></script>
+
+    <!-- Hidden static Netlify form so the booking form is detected at build time -->
+    <form
+      name="booking"
+      method="POST"
+      action="/booking-success.html"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      hidden
+    >
+      <input type="hidden" name="form-name" value="booking" />
+      <input type="text" name="parentName" />
+      <input type="tel" name="phoneNumber" />
+      <input type="text" name="childAge" />
+      <input type="text" name="childAbility" />
+      <input type="text" name="service" />
+      <textarea name="additionalComments"></textarea>
+    </form>
   </body>
 </html>
