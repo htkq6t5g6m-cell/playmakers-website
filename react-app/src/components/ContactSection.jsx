@@ -12,7 +12,7 @@ const ContactSection = () => {
         <div className="cta-buttons">
           <a 
             href={contactInfo.whatsapp}
-            className="btn btn-cta"
+            className="btn-cta"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -21,7 +21,7 @@ const ContactSection = () => {
           </a>
           <a 
             href={contactInfo.facebook}
-            className="btn btn-cta"
+            className="btn-cta"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -30,12 +30,12 @@ const ContactSection = () => {
           </a>
           <a 
             href={contactInfo.instagram}
-            className="btn btn-cta"
+            className="btn-cta"
             target="_blank"
             rel="noopener noreferrer"
           >
             <img className="btn-icon-img" src="/icons/instagram.svg" alt="Instagram" />
-            Instagram {contactInfo.instagramHandle}
+            Instagram
           </a>
         </div>
       </div>

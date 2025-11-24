@@ -137,23 +137,24 @@ body { background: #000; color: var(--color-white); }
     padding: 12px clamp(16px, 4vw, 40px);
 }
 
-/* Contact CTA buttons (footer/contact area) */
+/* Contact CTA links: icon + label without bubble */
 .btn-cta {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
     gap: 10px;
-    padding: 10px 16px;
-    border-radius: 999px;
-    background: rgba(255,255,255,0.03);
+    padding: 6px 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
     color: var(--color-white);
-    border: 1px solid rgba(255,255,255,0.95);
     text-decoration: none;
-    transition: var(--transition-smooth);
+    font-weight: 600;
+    transition: color var(--transition-smooth);
 }
 
-.btn-cta:hover {
-    background: rgba(255,255,255,0.08);
+.btn-cta:hover,
+.btn-cta:focus-visible {
+    color: var(--color-orange);
 }
 
 /* spacing between CTA buttons in contact area */
@@ -443,8 +444,17 @@ body { background: #000; color: var(--color-white); }
         margin-left: auto;
         margin-right: auto;
     }
+
     /* Ensure subtitle width doesn't overflow and remains centered */
-    .section-subtitle { max-width: 92vw; margin-left: auto; margin-right: auto; }
+    .section-subtitle {
+        max-width: 92vw;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .cta-buttons {
+        align-items: center;
+    }
 }
 /* ===========================
    SCROLL PROGRESS (RIGHT SIDE)
@@ -1668,10 +1678,12 @@ body { background: #000; color: var(--color-white); }
         flex-direction: column;
         align-items: center;
     }
-    
-    .btn-cta {
+}
+
+/* Extra small devices: ensure CTA stack stays centered */
+@media (max-width: 520px) {
+    .cta-buttons {
         width: 100%;
-        max-width: 400px;
     }
 }
 
@@ -1919,12 +1931,6 @@ body { background: #000; color: var(--color-white); }
     .btn-large {
         padding: 14px 28px;
         font-size: 1rem;
-    }
-    
-    .btn-cta {
-        padding: 16px 24px;
-        font-size: 1rem;
-        min-width: auto;
     }
 
     /* Mobile tweaks: reduce service card size on small screens (iPhone) */
