@@ -184,6 +184,20 @@ export const clubs = [
   'Liverpool',
   'Chester FC',
   'Wrexham',
+  'Accrington Stanley',
+  'Everton',
+  'Man City',
+  'Man Utd',
+  'Liverpool',
+  'Chester FC',
+  'Wrexham',
+  'Accrington Stanley',
+  'Everton',
+  'Man City',
+  'Man Utd',
+  'Liverpool',
+  'Chester FC',
+  'Wrexham',
   'Accrington Stanley'
 ];
 

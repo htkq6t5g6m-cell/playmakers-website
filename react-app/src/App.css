@@ -627,10 +627,12 @@ section[id] {
 }
 
 .club-marquee-track {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 30px;
-    animation: clubMarquee 8s linear infinite;
+    animation: clubMarquee 35s linear infinite alternate;
+    width: max-content;
+    min-width: 100%;
 }
 
 .club-marquee:hover .club-marquee-track,
@@ -649,12 +651,8 @@ section[id] {
 }
 
 @keyframes clubMarquee {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-50%);
-    }
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
 @media (prefers-reduced-motion: reduce) {
