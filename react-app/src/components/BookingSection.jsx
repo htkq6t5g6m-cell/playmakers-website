@@ -24,6 +24,8 @@ import React, { useState } from 'react';
 const BookingSection = () => {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const phonePattern = /^\+?[0-9\s()\-]{7,20}$/;
 
@@ -46,7 +48,13 @@ const BookingSection = () => {
     return e;
   }
 
-  const handleSubmit = (ev) => {
+  const encode = (data) => {
+    return Array.from(data.entries())
+      .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value ?? '')}`)
+      .join('&');
+  };
+
+  const handleSubmit = async (ev) => {
     const formEl = ev.target;
     const formData = new FormData(formEl);
     const e = validate(formData);
@@ -62,12 +70,27 @@ const BookingSection = () => {
       return false;
     }
 
+    ev.preventDefault();
     setErrors({});
+    setSubmitError('');
     setIsSubmitting(true);
-    // Allow default form submission (Netlify will capture and then redirect to booking-success.html)
-    // Optionally: we could submit via fetch to '/' to show an inline success state without redirect,
-    // but using a normal POST → success page keeps Netlify's form handling simple and works with JS off.
-    return true;
+
+    try {
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode(formData)
+      });
+      formEl.reset();
+      setShowSuccess(true);
+    } catch (err) {
+      console.error('Form submission failed', err);
+      setSubmitError('Something went wrong sending your request. Please try again in a moment.');
+    } finally {
+      setIsSubmitting(false);
+    }
+
+    return false;
   };
 
   return (
@@ -79,7 +102,6 @@ const BookingSection = () => {
         <form
           name="booking"
           method="POST"
-          action="/booking-success.html"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           className="booking-form"
@@ -153,6 +175,24 @@ const BookingSection = () => {
                 : 'After submission we will be in touch to confirm availability.'}
             </p>
           </div>
+
+          {submitError && (
+            <div className="form-error" role="alert" style={{ marginTop: '12px' }}>
+              {submitError}
+            </div>
+          )}
+
+          {showSuccess && (
+            <div className="success-banner" role="status" aria-live="polite">
+              <div className="success-content">
+                <strong>Booking request sent.</strong>
+                <span>We will get back to you within 24–48 hours.</span>
+              </div>
+              <button type="button" className="btn btn-header" onClick={() => setShowSuccess(false)}>
+                Close
+              </button>
+            </div>
+          )}
         </form>
 
         <div className="booking-footnote">

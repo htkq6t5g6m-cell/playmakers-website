@@ -1558,6 +1558,9 @@ section[id] {
 .form-actions{display:flex;align-items:center;gap:20px;margin-top:18px;flex-wrap:wrap}
 .form-help{color:var(--color-grey-medium);margin:0}
 .booking-footnote{margin-top:14px;color:var(--color-grey-medium);text-align:center}
+.success-banner{margin-top:20px;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 20px;border-radius:10px;background:rgba(28,164,98,0.15);border:1px solid rgba(28,164,98,0.35);box-shadow:0 10px 30px rgba(0,0,0,0.5)}
+.success-content{display:flex;flex-direction:column;gap:4px;color:var(--color-white)}
+.success-content strong{color:#74f9c2}
 
 /* Make spacing between the booking section and the following contact CTA consistent
     When the contact CTA immediately follows the booking section, share the
