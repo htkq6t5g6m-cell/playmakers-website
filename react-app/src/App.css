@@ -18,15 +18,13 @@
     
     /* Spacing */
     --container-width: 1200px;
-    /* Unified vertical rhythm */
-    --section-padding: 72px 20px; /* slightly tighter than 80px */
-    --section-padding-mobile: 54px 20px; /* proportionally reduced */
+    --section-padding: 72px 20px;
+    --section-padding-mobile: 54px 20px;
     
     /* Transitions */
     --transition-smooth: all 0.3s ease;
 }
 
-/* Central page container used across React components */
 .container {
     max-width: var(--container-width);
     width: 100%;
@@ -344,33 +342,32 @@ section[id] {
 .hero-content {
     position: relative;
     z-index: 2;
-    max-width: 800px;
-    padding: clamp(40px, 14vh, 140px) 20px 0;
+    width: 100%;
+    max-width: 900px;
+    padding: clamp(16px, 4vw, 48px);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: clamp(12px, 2vw, 24px);
+    justify-content: center;
+    text-align: center;
+    gap: clamp(12px, 2vw, 32px);
+    min-height: min(80vh, 560px);
 }
 
-/* On larger screens show hero as two-column (text left, media/video right) */
 @media (min-width: 1024px) {
     .hero-content {
-        max-width: var(--container-width);
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2.25rem;
-        align-items: center;
-        text-align: left;
-        padding-top: clamp(32px, 10vh, 80px);
+        max-width: 960px;
+        padding: clamp(24px, 6vw, 60px);
     }
-    .hero-title, .hero-subtitle, .hero-text {
-        text-align: left;
+    .hero-title,
+    .hero-subtitle,
+    .hero-text {
+        text-align: center;
     }
 }
 
-/* When the top logo exists, reduce the gap between the logo and the hero content */
 .site-top-logo + .hero .hero-content {
-    padding-top: clamp(16px, 8vh, 64px); /* smaller than the default to bring title up */
+    padding-top: clamp(16px, 5vh, 40px);
 }
 
 .hero-title {
