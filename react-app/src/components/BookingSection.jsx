@@ -17,13 +17,16 @@ import React, { useState } from 'react';
 
   UX notes:
   - Uses HTML5 validation plus a small client-side check to give nicer inline errors.
-  - The form posts to `/booking-success.html` so Netlify will redirect to the success
-    page after a successful submission (works with JS disabled).
+  - The form posts to `/booking-success.html` for graceful fallback, but we intercept
+    the submit in JS to show an inline success banner while still sending data to
+    Netlify. With JS disabled the redirect will still work.
 */
 
 const BookingSection = () => {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   const phonePattern = /^\+?[0-9\s()\-]{7,20}$/;
 
@@ -46,25 +49,53 @@ const BookingSection = () => {
     return e;
   }
 
-  const handleSubmit = (ev) => {
+  const handleSubmit = async (ev) => {
+    ev.preventDefault();
     const formEl = ev.target;
     const formData = new FormData(formEl);
     const e = validate(formData);
 
     if (Object.keys(e).length > 0) {
-      ev.preventDefault();
       setErrors(e);
       setIsSubmitting(false);
+      setShowSuccess(false);
       // focus first invalid field
       const first = Object.keys(e)[0];
       const input = formEl.querySelector(`[name="${first}"]`);
       if (input) input.focus();
-      return false;
+      return;
     }
     setErrors({});
+    setSubmitError('');
+    setShowSuccess(false);
     setIsSubmitting(true);
 
-    return false;
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString(),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Netlify form submission failed: ${response.status}`);
+      }
+
+      formEl.reset();
+      ['childAbility', 'service'].forEach((name) => {
+        const field = formEl.querySelector(`[name="${name}"]`);
+        if (field) field.value = '';
+      });
+
+      setShowSuccess(true);
+      setSubmitError('');
+    } catch (error) {
+      console.error('Booking submission failed', error);
+      setSubmitError('Something went wrong. Please try again or contact us directly.');
+      setShowSuccess(false);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -103,6 +134,29 @@ const BookingSection = () => {
           {/* Netlify required hidden input */}
           <input type="hidden" name="form-name" value="booking" />
           <input type="hidden" name="bot-field" />
+
+          {showSuccess && (
+            <div className="success-banner" role="status">
+              <div className="success-content">
+                <strong>Request received!</strong>
+                <span>Thanks for booking. We'll confirm availability shortly.</span>
+              </div>
+              <button
+                type="button"
+                className="btn"
+                aria-label="Dismiss success message"
+                onClick={() => setShowSuccess(false)}
+              >
+                Dismiss
+              </button>
+            </div>
+          )}
+
+          {submitError && (
+            <div className="form-error" role="alert" style={{ marginBottom: '12px' }}>
+              {submitError}
+            </div>
+          )}
 
           <div className="form-grid">
             <div className="form-group">
