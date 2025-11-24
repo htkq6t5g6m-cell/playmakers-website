@@ -38,11 +38,19 @@ const TestimonialsSection = () => {
   // Touch / swipe and drag visual feedback
   const touchStartX = useRef(null);
   const touchActive = useRef(false);
+  const pointerCaptured = useRef(false);
   const [dragOffset, setDragOffset] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const touchStartTime = useRef(0);
   const lastMoveX = useRef(0);
   const lastMoveTime = useRef(0);
+
+  const isInteractiveTarget = (target) => {
+    if (!target || typeof target.closest !== 'function') return false;
+    return Boolean(
+      target.closest('.testimonial-controls') || target.closest('.testimonial-dots')
+    );
+  };
 
   const pointerStart = (x) => {
     touchStartX.current = x;
@@ -96,6 +104,7 @@ const TestimonialsSection = () => {
 
   // touch handlers
   const onTouchStart = (e) => {
+    if (isInteractiveTarget(e.target)) return;
     const t = e.touches && e.touches[0];
     if (!t) return;
     pointerStart(t.clientX);
@@ -111,12 +120,19 @@ const TestimonialsSection = () => {
   const onPointerDown = (e) => {
     // only left button
     if (e.pointerType === 'mouse' && e.button !== 0) return;
-    e.currentTarget.setPointerCapture && e.currentTarget.setPointerCapture(e.pointerId);
+    if (isInteractiveTarget(e.target)) return;
+    if (e.currentTarget.setPointerCapture) {
+      e.currentTarget.setPointerCapture(e.pointerId);
+      pointerCaptured.current = true;
+    }
     pointerStart(e.clientX);
   };
   const onPointerMove = (e) => pointerMove(e.clientX);
   const onPointerUp = (e) => {
-    e.currentTarget.releasePointerCapture && e.currentTarget.releasePointerCapture(e.pointerId);
+    if (pointerCaptured.current && e.currentTarget.releasePointerCapture) {
+      e.currentTarget.releasePointerCapture(e.pointerId);
+      pointerCaptured.current = false;
+    }
     pointerEnd();
   };
 

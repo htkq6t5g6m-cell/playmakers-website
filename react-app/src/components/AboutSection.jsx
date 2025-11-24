@@ -27,7 +27,7 @@ const AboutSection = () => {
               playsInline
               style={{ pointerEvents: 'none' }}
             >
-              <source src="/videos/about.mov" type="video/mp4" />
+              <source src="/videos/about.mp4" type="video/mp4" />
               Your browser doesn't support video playback.
             </video>
           </div>
