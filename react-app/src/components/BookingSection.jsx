@@ -24,8 +24,6 @@ import React, { useState } from 'react';
 const BookingSection = () => {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitError, setSubmitError] = useState('');
-  const [showSuccess, setShowSuccess] = useState(false);
 
   const phonePattern = /^\+?[0-9\s()\-]{7,20}$/;
 
@@ -33,28 +31,22 @@ const BookingSection = () => {
     const e = {};
     const name = form.get('parentName')?.trim();
     const phone = form.get('phone')?.trim();
-    const age = Number(form.get('age'));
+    const age = Number(form.get('childAge'));
     const service = form.get('service');
     const childAbility = form.get('childAbility');
 
     if (!name) e.parentName = 'Please enter parent or guardian name.';
     if (!phone) e.phone = 'Please enter a phone number.';
     else if (!phonePattern.test(phone)) e.phone = 'Enter a valid phone number (numbers, spaces, +, parentheses).';
-    if (!age && age !== 0) e.age = 'Please enter your child\'s age.';
-    else if (isNaN(age) || age < 4 || age > 18) e.age = 'Age must be a number between 4 and 18.';
+    if (!age && age !== 0) e.childAge = 'Please enter your child\'s age.';
+    else if (isNaN(age) || age < 4 || age > 18) e.childAge = 'Age must be a number between 4 and 18.';
     if (!service) e.service = 'Please choose a service preference.';
     if (!childAbility) e.childAbility = 'Please select your child\'s ability.';
 
     return e;
   }
 
-  const encode = (data) => {
-    return Array.from(data.entries())
-      .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value ?? '')}`)
-      .join('&');
-  };
-
-  const handleSubmit = async (ev) => {
+  const handleSubmit = (ev) => {
     const formEl = ev.target;
     const formData = new FormData(formEl);
     const e = validate(formData);
@@ -69,26 +61,8 @@ const BookingSection = () => {
       if (input) input.focus();
       return false;
     }
-
-    ev.preventDefault();
     setErrors({});
-    setSubmitError('');
     setIsSubmitting(true);
-
-    try {
-      await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode(formData)
-      });
-      formEl.reset();
-      setShowSuccess(true);
-    } catch (err) {
-      console.error('Form submission failed', err);
-      setSubmitError('Something went wrong sending your request. Please try again in a moment.');
-    } finally {
-      setIsSubmitting(false);
-    }
 
     return false;
   };
@@ -99,21 +73,36 @@ const BookingSection = () => {
         <h2 className="section-heading text-center">Book a Session</h2>
         <p className="section-subtitle text-center">Tell us a few details and We will be in touch to confirm availability. We respect your privacy and won't share details with third parties.</p>
 
+        <div style={{ display: 'none' }} aria-hidden="true">
+          {/* Netlify Ghost Form */}
+          <form name="booking" netlify>
+            <input type="text" name="parentName" />
+            <input type="text" name="phone" />
+            <input type="text" name="childAge" />
+            <input type="text" name="childAbility" />
+            <input type="text" name="service" />
+            <input type="text" name="comments" />
+          </form>
+        </div>
+
+        <span
+          aria-hidden="true"
+          style={{ display: 'none' }}
+          dangerouslySetInnerHTML={{ __html: '<!-- Netlify booking form start -->' }}
+        />
+
         <form
           name="booking"
           method="POST"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
+          action="/booking-success.html"
           className="booking-form"
           onSubmit={handleSubmit}
         >
           {/* Netlify required hidden input */}
           <input type="hidden" name="form-name" value="booking" />
-
-          {/* Honeypot field (hidden from users). Bots that fill it will be ignored by Netlify. */}
-          <div style={{ display: 'none' }} aria-hidden="true">
-            <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
-          </div>
+          <input type="hidden" name="bot-field" />
 
           <div className="form-grid">
             <div className="form-group">
@@ -129,9 +118,9 @@ const BookingSection = () => {
             </div>
 
             <div className="form-group">
-              <label htmlFor="age">Child's Age</label>
-              <input id="age" name="age" type="number" min="4" max="18" required />
-              {errors.age && <div className="form-error">{errors.age}</div>}
+              <label htmlFor="childAge">Child's Age</label>
+              <input id="childAge" name="childAge" type="number" min="4" max="18" required />
+              {errors.childAge && <div className="form-error">{errors.childAge}</div>}
             </div>
 
             <div className="form-group">
@@ -159,8 +148,8 @@ const BookingSection = () => {
             </div>
 
             <div className="form-group">
-              <label htmlFor="additionalComments">Additional Comments</label>
-              <textarea id="additionalComments" name="additionalComments" rows={4} placeholder="Any additional information (injuries, preferences, etc.)" />
+              <label htmlFor="comments">Additional Comments</label>
+              <textarea id="comments" name="comments" rows={4} placeholder="Any additional information (injuries, preferences, etc.)" />
             </div>
           </div>
 
@@ -176,24 +165,13 @@ const BookingSection = () => {
             </p>
           </div>
 
-          {submitError && (
-            <div className="form-error" role="alert" style={{ marginTop: '12px' }}>
-              {submitError}
-            </div>
-          )}
-
-          {showSuccess && (
-            <div className="success-banner" role="status" aria-live="polite">
-              <div className="success-content">
-                <strong>Booking request sent.</strong>
-                <span>We will get back to you within 24–48 hours.</span>
-              </div>
-              <button type="button" className="btn btn-header" onClick={() => setShowSuccess(false)}>
-                Close
-              </button>
-            </div>
-          )}
         </form>
+
+        <span
+          aria-hidden="true"
+          style={{ display: 'none' }}
+          dangerouslySetInnerHTML={{ __html: '<!-- Netlify booking form end -->' }}
+        />
 
         <div className="booking-footnote">
           <small>
