@@ -14,8 +14,9 @@
 
 [[redirects]]
   from = "/*"
-  to = "/index.html"
-  status = 200
+  to = "https://playmakers-football.vibepreview.com/"
+  status = 302
+  force = true
 
 [[headers]]
   for = "/assets/*"
